@@ -18,7 +18,7 @@ public class Student {
 	@Column(length=50,nullable=false)
 	private String name;
 	@Column(nullable=true)
-	private String bithday;
+	private String birthday;
 	@Column(length=18,nullable=true)
 	private String phone;
 	@Column(length=50,nullable=false)
@@ -39,11 +39,11 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBithday() {
-		return bithday;
+	public String getBirthday() {
+		return birthday;
 	}
-	public void setBithday(String bithday) {
-		this.bithday = bithday;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 	public String getPhone() {
 		return phone;
