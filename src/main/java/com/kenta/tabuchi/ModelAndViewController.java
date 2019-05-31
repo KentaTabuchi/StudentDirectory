@@ -8,16 +8,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kenta.tabuchi.repositories.StudentRepository;
 
 @Controller
-public class ModelViewController {
+public class ModelAndViewController {
 	
 	@Autowired
 	StudentRepository repository;
 	
-	@RequestMapping(value="/")
+	@RequestMapping("/")
 	public ModelAndView index(ModelAndView mav) {
 		mav.setViewName("index");
 		Iterable<Student> list = repository.findAll();
 		mav.addObject("recordSet", list);
 		return mav;
+		
 	}
 }

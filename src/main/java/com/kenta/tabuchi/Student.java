@@ -1,7 +1,5 @@
 package com.kenta.tabuchi;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +18,7 @@ public class Student {
 	@Column(length=50,nullable=false)
 	private String name;
 	@Column(nullable=true)
-	private Date bithday;
+	private String bithday;
 	@Column(length=18,nullable=true)
 	private String phone;
 	@Column(length=50,nullable=false)
@@ -41,10 +39,10 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getBithday() {
+	public String getBithday() {
 		return bithday;
 	}
-	public void setBithday(Date bithday) {
+	public void setBithday(String bithday) {
 		this.bithday = bithday;
 	}
 	public String getPhone() {
