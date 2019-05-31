@@ -15,18 +15,23 @@ public class ModelAndViewController {
 	@Autowired
 	StudentRepository repository;
 	
-	@RequestMapping("/")
+	@RequestMapping(value="/",method=RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 		mav.setViewName("index");
 		Iterable<Student> list = repository.findAll();
 		mav.addObject("recordSet", list);
 		return mav;
-		
 	}
+	
 	
 	@RequestMapping(value="/add_record",method=RequestMethod.GET)
 	public ModelAndView addRecord(@ModelAttribute("formModel")Student student,ModelAndView mav) {
 		mav.setViewName("add_record");
 		return mav;
+	}
+	@RequestMapping(value="/add_record",method=RequestMethod.POST)
+	public ModelAndView form(@ModelAttribute("formModel")Student student,ModelAndView mav) {
+		repository.saveAndFlush(student);
+		return new ModelAndView("redirect:/");
 	}
 }
