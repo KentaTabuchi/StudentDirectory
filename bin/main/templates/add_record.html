@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
 <meta charset="UTF-8">
 <title>学生名簿</title>
 </head>
@@ -9,6 +10,7 @@
 
 <form method="post" action="add_record" th:object="${formModel}">
 	<table>
+		<tr><th>項目</th><th>入力欄</th></tr>
 		<tr><td>名前</td>
 			<td><input type="text" name="name" th:value="*{name}"/></td>
 		</tr>
@@ -27,10 +29,8 @@
 		<tr><td>卒業年</td>
 			<td><input type="text" name="graduation" th:value="*{graduation}"/></td>
 		</tr>
-		<tr>
-			<td><input type="submit" value="この内容でデータを追加"></td>
-		</tr>		
 	</table>
+	<input type="submit" value="この内容でデータを追加" />
 </form>
 
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
 <meta charset="UTF-8">
 <title>学生名簿</title>
 </head>
@@ -8,7 +9,7 @@
 	<h1>生徒一覧</h1>
 	<input type="button" onclick="location.href='add_record'"value="新規追加">
 	<form>
-		<table>
+		<table class="listTable">
 			<tr>
 				<th>生徒番号</th>
 				<th>名前</th>
