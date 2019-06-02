@@ -2,6 +2,8 @@ package com.kenta.tabuchi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,9 +31,21 @@ public class ModelAndViewController {
 		mav.setViewName("add_record");
 		return mav;
 	}
+	
 	@RequestMapping(value="/add_record",method=RequestMethod.POST)
-	public ModelAndView form(@ModelAttribute("formModel")Student student,ModelAndView mav) {
-		repository.saveAndFlush(student);
-		return new ModelAndView("redirect:/");
+	public ModelAndView form(
+			@ModelAttribute("formModel") @Validated Student student,
+			BindingResult result,
+			ModelAndView mav)
+	{
+		ModelAndView adoptedMav = null;
+		if(!result.hasErrors()) {
+			repository.saveAndFlush(student);
+			adoptedMav = new ModelAndView("redirect:/");
+		}else {
+			mav.setViewName("add_record");
+			adoptedMav = mav;
+		}
+		return adoptedMav;
 	}
 }

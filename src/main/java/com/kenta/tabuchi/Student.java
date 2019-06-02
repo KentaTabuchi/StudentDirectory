@@ -6,6 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name="M_Student")
@@ -15,18 +21,30 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 	private Long id;
+	
 	@Column(length=50,nullable=false)
+	@NotNull
 	private String name;
+	
 	@Column(nullable=true)
+	@Pattern(regexp="....[/]..[/]..")
 	private String birthday;
+	
 	@Column(length=18,nullable=true)
+	@Pattern(regexp="...?.?[-]....?[-]....?")
 	private String phone;
+	
+	@Email
 	@Column(length=50,nullable=false)
 	private String email;
+	
 	@Column(length=100,nullable=false)
 	private String address;
+	
+	@Range(min=1500,max=3000)
 	@Column(length=5,nullable=false)
 	private String graduation;
+	
 	public Long getId() {
 		return id;
 	}
