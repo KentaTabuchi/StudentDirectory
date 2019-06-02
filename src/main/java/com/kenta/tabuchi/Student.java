@@ -7,10 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
@@ -23,7 +21,7 @@ public class Student {
 	private Long id;
 	
 	@Column(length=50,nullable=false)
-	@NotNull
+	@NotEmpty
 	private String name;
 	
 	@Column(nullable=true)
