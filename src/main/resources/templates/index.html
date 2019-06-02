@@ -8,6 +8,11 @@
 <body>
 	<h1>生徒一覧</h1>
 	<input type="button" onclick="location.href='add_record'"value="新規追加">
+	<form method="post" enctype="multipart/form-data" >
+		<input type='file' th:field="*{multipartFile}"/>
+		<input type="submit">
+	</form>
+	
 	<form>
 		<table class="listTable">
 			<tr>
