@@ -91,3 +91,10 @@ input[type="button"]:hover,input[type="submit"]:hover{
   background-color: rgba(147,162,0,.0);
   color:  rgba(147,162,0,1);
 }
+
+input[type="text"]{
+	font-size:20px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
