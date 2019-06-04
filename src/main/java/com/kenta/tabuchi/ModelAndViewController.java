@@ -1,5 +1,11 @@
 package com.kenta.tabuchi;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,14 +80,31 @@ public class ModelAndViewController {
 	@RequestMapping(value="/",method=RequestMethod.POST)
 	public ModelAndView post(
 			@RequestParam("name")String name,
-			@RequestParam("upload_file")MultipartFile maltipartfile,
+			@RequestParam("upload_file")MultipartFile file,
 			ModelAndView mav) 
 	{
 		mav.setViewName("index");
 		Iterable<Student> list = repository.findByNameLike("%"+name+"%");//% is wild card.
+		mav.addObject("file_name",file.getOriginalFilename());
+		mav.addObject("file_contents", fileContents(file));
 		mav.addObject("recordSet", list);
 		return mav;
 	}	
+	private String fileContents(MultipartFile file) {
+		String line = null;
+		try {
+			InputStream stream = file.getInputStream();
+			Reader reader = new InputStreamReader(stream);
+			BufferedReader buf= new BufferedReader(reader);
+			line = buf.readLine();
+			
+		} catch (IOException e) {
+			line = "Can't read contents.";
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return line;
+	}
 	
 	
 	/** 
