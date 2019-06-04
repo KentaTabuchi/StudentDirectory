@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kenta.tabuchi.repositories.StudentRepository;
@@ -71,7 +72,11 @@ public class ModelAndViewController {
 	 * @return
 	 */
 	@RequestMapping(value="/",method=RequestMethod.POST)
-	public ModelAndView post(@RequestParam("name")String name, ModelAndView mav) {
+	public ModelAndView post(
+			@RequestParam("name")String name,
+			@RequestParam("upload_file")MultipartFile maltipartfile,
+			ModelAndView mav) 
+	{
 		mav.setViewName("index");
 		Iterable<Student> list = repository.findByNameLike("%"+name+"%");//% is wild card.
 		mav.addObject("recordSet", list);
