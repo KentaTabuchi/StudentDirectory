@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment = "frag_body">
+	<!-- The following text is table view read from DB. -->
+	<form>
+		<table class="listTable">
+			<tr>
+				<th>生徒番号</th>
+				<th>名前</th>
+				<th>誕生日</th>
+				<th>電話番号</th>
+				<th>E-mail</th>
+				<th>住所</th>
+				<th>卒業年</th>
+			</tr>
+			<tr th:each="record:${recordSet}">
+				<td>[[${record.id}]]</td>
+				<td>[[${record.name}]]</td>
+				<td>[[${record.birthday}]]</td>
+				<td>[[${record.phone}]]</td>
+				<td>[[${record.email}]]</td>
+				<td>[[${record.address}]]</td>
+				<td>[[${record.graduation}]]</td>
+			</tr>
+		</table>
+	</form>
+</div>
+</body>
+</html>

@@ -6,33 +6,11 @@
 <title>生徒検索</title>
 </head>
 <body>
-	<form method="post" action="find_record">
+	<form method="post" action="find_record" >
 		<input type="text" name="name">
 		<input type="submit" value="名前で検索">
-	</form>
-	<!-- The following text is table view read from DB. -->
-	<form>
-		<table class="listTable">
-			<tr>
-				<th>生徒番号</th>
-				<th>名前</th>
-				<th>誕生日</th>
-				<th>電話番号</th>
-				<th>E-mail</th>
-				<th>住所</th>
-				<th>卒業年</th>
-			</tr>
-			<tr th:each="record:${recordSet}">
-				<td>[[${record.id}]]</td>
-				<td>[[${record.name}]]</td>
-				<td>[[${record.birthday}]]</td>
-				<td>[[${record.phone}]]</td>
-				<td>[[${record.email}]]</td>
-				<td>[[${record.address}]]</td>
-				<td>[[${record.graduation}]]</td>
-			</tr>
-		</table>
-	</form>
+		</form>
+<div th:include="table_fragment::frag_body"></div>
 
 </body>
 </html>
