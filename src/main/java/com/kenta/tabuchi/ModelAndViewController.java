@@ -73,14 +73,11 @@ public class ModelAndViewController {
 	 */
 	@RequestMapping(value="/",method=RequestMethod.POST)
 	public ModelAndView post(
-			@RequestParam("name")String name,
 			@RequestParam("upload_file")MultipartFile uploadFile,
 			ModelAndView mav) 
 	{
 		mav.setViewName("index");
-		Iterable<Student> list = repository.findByNameLike("%"+name+"%");//% is wild card.
 		mav.addObject("file_name",uploadFile.getOriginalFilename());
-		mav.addObject("recordSet", list);
 		CsvReader csvReader = new CsvReader();
 		csvReader.addTableFromCsv(uploadFile,repository);
 		mav.addObject("file_contents",csvReader.getLinesFromCsv(uploadFile));
@@ -125,5 +122,23 @@ public class ModelAndViewController {
 			adoptedMav = mav;
 		}
 		return adoptedMav;
+	}
+	
+	@RequestMapping(value="/find_record",method=RequestMethod.GET)
+	public ModelAndView findRecord(
+			ModelAndView mav) {
+		mav.setViewName("find_record");
+		Iterable<Student> list = repository.findAll();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
+	@RequestMapping(value="/find_record",method=RequestMethod.POST)
+	public ModelAndView findRecordPost(
+			@RequestParam("name")String name,
+			ModelAndView mav) {
+		mav.setViewName("find_record");
+		Iterable<Student> list = repository.findByNameLike("%"+name+"%");
+		mav.addObject("recordSet",list);
+		return mav;
 	}
 }

@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 import com.kenta.tabuchi.repositories.StudentRepository;
 
@@ -19,6 +18,11 @@ public class CsvReader {
     
 
 	
+	/**
+	 * This method adds record to db Table from csv file that uploded by user.
+	 * @param uploadFile
+	 * @param repository
+	 */
 	public void addTableFromCsv(MultipartFile uploadFile,StudentRepository repository) {
 		logger.info("ログテスト");
 		List<String> lines=fileContents(uploadFile);
@@ -35,6 +39,11 @@ public class CsvReader {
 		});
 	}
 	
+	/**
+	 * @param uploadFile
+	 * @return
+	 * This method created for reading test.
+	 */
 	public List<String> getLinesFromCsv(MultipartFile uploadFile) {
 		logger.info("ログテスト");
 		List<String> result = new ArrayList<String>();

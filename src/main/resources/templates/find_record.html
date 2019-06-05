@@ -3,28 +3,13 @@
 <head>
 <link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
 <meta charset="UTF-8">
-<title>学生名簿</title>
+<title>生徒検索</title>
 </head>
 <body>
-	<h1>生徒一覧</h1>
-	
-	<!-- This is menu block at top of index page. -->
-	<form method="post" action="/" enctype="multipart/form-data">
-		<input type="button" onclick="location.href='add_record'"value="新規追加">
-		<input type="button" onclick="location.href='find_record'"value="生徒検索">
-		<br>
-		<input type="submit" value="CSVからインポート">
-		<input type="file" name="upload_file">	
+	<form method="post" action="find_record">
+		<input type="text" name="name">
+		<input type="submit" value="名前で検索">
 	</form>
-	<p th:text="${file_name}"></p>
-	<table>
-	<tr th:each="line:${file_contents}">
-		<td th:text=${line}></td>
-	</tr>
-	</table>
-		
-	
-	
 	<!-- The following text is table view read from DB. -->
 	<form>
 		<table class="listTable">
@@ -48,5 +33,6 @@
 			</tr>
 		</table>
 	</form>
+
 </body>
 </html>

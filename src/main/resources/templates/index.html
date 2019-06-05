@@ -11,10 +11,9 @@
 	<!-- This is menu block at top of index page. -->
 	<form method="post" action="/" enctype="multipart/form-data">
 		<input type="button" onclick="location.href='add_record'"value="新規追加">
-		<input type="text" name="name">
-		<input type="submit" value="名前で検索">
+		<input type="button" onclick="location.href='find_record'"value="生徒検索">
 		<br>
-		<input type="submit" value="ファイルをアップロード">
+		<input type="submit" value="CSVからインポート">
 		<input type="file" name="upload_file">	
 	</form>
 	<p th:text="${file_name}"></p>
