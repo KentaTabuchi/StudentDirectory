@@ -18,7 +18,13 @@
 		<input type="file" name="upload_file">	
 	</form>
 	<p th:text="${file_name}"></p>
-	<p th:text="${file_contents}"></p>
+	<table>
+	<tr th:each="line:${file_contents}">
+		<td th:text=${line}></td>
+	</tr>
+	</table>
+		
+	
 	
 	<!-- The following text is table view read from DB. -->
 	<form>
