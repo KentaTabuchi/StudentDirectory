@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -127,16 +128,14 @@ public class ModelAndViewController {
 	}
 	@RequestMapping(value="/delete_record",method=RequestMethod.POST)
 	public ModelAndView deleteRecordPost(
-			@RequestParam("name")String name,
-			ModelAndView mav) {
-		mav.setViewName("delete_record");
-		Iterable<Student> list = repository.findByNameLike("%"+name+"%");
-		mav.addObject("recordSet",list);
+		@RequestParam("id")String id,
+		ModelAndView mav) {
+		mav = new ModelAndView("forward:/delete_comfirm/2") ;
 		return mav;
 	}
-	@RequestMapping(value="/delete_comfirm",method=RequestMethod.POST)
+	@RequestMapping(value="/delete_comfirm/{id}",method=RequestMethod.GET)
 	public ModelAndView deleteComfirm(
-			@RequestParam("id")String id,
+			@PathVariable("id")String id,
 			ModelAndView mav) {
 		mav.setViewName("delete_comfirm");
 		Optional<Student> record = repository.findById(Long.valueOf(id));

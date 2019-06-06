@@ -9,10 +9,18 @@
 <body>
 
 <h1>生徒情報削除</h1>
-<form method="post" action="delete_comfirm">
-	<input type="submit" value="ID番号で削除">
-	<input type="text" name="id">
+<form name="js">
+	<input type="button" value="ID番号で削除" onclick="getIdText()">
+	<input type="text" name="idText">
 </form>
+<!-- This method create URL with path variable,then forward to the URL.-->
+<script type="text/javascript">
+	function getIdText(){
+		var text=document.js.idText.value;
+		document.location.href = "delete_comfirm/"+text;
+	}
+</script>
+
 <div th:include="table_fragment::frag_body"></div>
 
 </body>
