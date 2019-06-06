@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>編集</h1>
-<form method="post" action="edit_form" th:object="${formModel}">
+<form method="post" action="/edit_form" th:object="${formModel}">
 	<table>
 		
 		<tr><th>項目</th><th>入力欄<input type="hidden" name="id" th:value="*{id}"/></th></tr>
@@ -45,7 +45,7 @@
 			</td>
 		</tr>
 	</table>
-	<input type="submit" value="この内容でデータを追加" />
+	<input type="submit" value="データを更新" />
 </form>
 
 </body>

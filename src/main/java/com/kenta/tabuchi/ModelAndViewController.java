@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -161,15 +162,15 @@ public class ModelAndViewController {
 		mav.addObject("formModel",record.get());
 		return mav;
 	}
+
 	@RequestMapping(value="/edit_form",method=RequestMethod.POST)
+	@Transactional(readOnly=false)
 	public ModelAndView editFormPost(
-			@RequestParam("hiddenId")String id,
+			@ModelAttribute("formModel")@Validated Student student,
+			BindingResult result,
 			ModelAndView mav) {
-		mav.setViewName("index");
-		repository.deleteById(Long.valueOf(id));
-		Iterable<Student> list = repository.findAll();
-		mav.addObject("recordSet", list);
-		return mav;
+		repository.saveAndFlush(student);
+		return new ModelAndView("redirect:/");
 	}
 	@RequestMapping(value="/edit_select",method=RequestMethod.GET)
 	public ModelAndView editSelectGet(
@@ -180,13 +181,11 @@ public class ModelAndViewController {
 		return mav;
 	}
 	@RequestMapping(value="/edit_select",method=RequestMethod.POST)
+	@Transactional(readOnly=false)
 	public ModelAndView editSelectPost(
-			@RequestParam("hiddenId")String id,
+			@ModelAttribute Student student,
 			ModelAndView mav) {
-		mav.setViewName("index");
-		repository.deleteById(Long.valueOf(id));
-		Iterable<Student> list = repository.findAll();
-		mav.addObject("recordSet", list);
-		return mav;
+		repository.saveAndFlush(student);
+		return new ModelAndView("redirect:/");
 	}
 }
