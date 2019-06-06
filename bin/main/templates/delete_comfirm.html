@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
+<meta charset="UTF-8">
+<title>削除確認</title>
+</head>
+<body>
+<h1>削除確認</h1>
+以下のレコードを削除します。宜しいですか？
+
+<form method="post" action="/" th:object="${formModel}">
+	<table>
+		<tr><th><p th:text ="|ID: *{id}|"></p></th>
+		<tr><td><p th:text ="|名前: *{name}|"></p></td>
+		<tr><td><p th:text ="|誕生日: *{birthday}|"></p></td>
+		<tr><td><p th:text ="|E-mail: *{email}|"></p></td>
+		<tr><td><p th:text ="|住所: *{address}|"></p></td>
+		<tr><td><p th:text ="|卒業年: *{graduation}|"></p></td>
+	</table>
+	<input type="submit" value="削除" />
+	<input type="button" value="中止" onclick="location.href='/'">
+</form>
+
+
+</body>
+</html>
