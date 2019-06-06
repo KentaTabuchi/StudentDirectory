@@ -9,8 +9,8 @@
 <h1>編集</h1>
 <form method="post" action="edit_form" th:object="${formModel}">
 	<table>
-		<tr><td><input type="hidden" name="id" th:value="*{id}"/></td></tr>
-		<tr><th>項目</th><th>入力欄</th></tr>
+		
+		<tr><th>項目</th><th>入力欄<input type="hidden" name="id" th:value="*{id}"/></th></tr>
 		<tr><td>名前</td>
 			<td><input type="text" name="name" th:value="*{name}" th:errorclass="err"/>
 				<div th:if="${#fields.hasErrors('name')}" 

@@ -156,7 +156,7 @@ public class ModelAndViewController {
 	public ModelAndView editForm(
 			@PathVariable("id")String id,
 			ModelAndView mav) {
-		mav.setViewName("delete_comfirm");
+		mav.setViewName("edit_form");
 		Optional<Student> record = repository.findById(Long.valueOf(id));
 		mav.addObject("formModel",record.get());
 		return mav;
