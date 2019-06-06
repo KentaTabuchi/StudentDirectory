@@ -152,4 +152,41 @@ public class ModelAndViewController {
 		mav.addObject("recordSet", list);
 		return mav;
 	}
+	@RequestMapping(value="/edit_form/{id}",method=RequestMethod.GET)
+	public ModelAndView editForm(
+			@PathVariable("id")String id,
+			ModelAndView mav) {
+		mav.setViewName("delete_comfirm");
+		Optional<Student> record = repository.findById(Long.valueOf(id));
+		mav.addObject("formModel",record.get());
+		return mav;
+	}
+	@RequestMapping(value="/edit_form",method=RequestMethod.POST)
+	public ModelAndView editFormPost(
+			@RequestParam("hiddenId")String id,
+			ModelAndView mav) {
+		mav.setViewName("index");
+		repository.deleteById(Long.valueOf(id));
+		Iterable<Student> list = repository.findAll();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
+	@RequestMapping(value="/edit_select",method=RequestMethod.GET)
+	public ModelAndView editSelectGet(
+			ModelAndView mav) {
+		Iterable<Student> list = repository.findAll();
+		mav.addObject("recordSet", list);
+		mav.setViewName("edit_select");
+		return mav;
+	}
+	@RequestMapping(value="/edit_select",method=RequestMethod.POST)
+	public ModelAndView editSelectPost(
+			@RequestParam("hiddenId")String id,
+			ModelAndView mav) {
+		mav.setViewName("index");
+		repository.deleteById(Long.valueOf(id));
+		Iterable<Student> list = repository.findAll();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
 }

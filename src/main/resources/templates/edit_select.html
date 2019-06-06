@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
+<meta charset="UTF-8">
+<title>生徒情報編集</title>
+</head>
+
+<body>
+
+<h1>生徒情報編集</h1>
+<form name="js">
+	<input type="button" value="ID番号で検索" onclick="getIdText()">
+	<input type="text" name="idText">
+</form>
+<!-- This method create URL with path variable,then forward to the URL.-->
+<script type="text/javascript">
+	function getIdText(){
+		var text=document.js.idText.value;
+		document.location.href = "edit_form/"+text;
+	}
+</script>
+
+<div th:include="table_fragment::frag_body"></div>
+
+</body>
+</html>
