@@ -9,7 +9,7 @@
 <h1>削除確認</h1>
 以下のレコードを削除します。宜しいですか？
 
-<form method="post" action="/" th:object="${formModel}">
+<form method="post" action="/delete_comfirm" th:object="${formModel}">
 	<table>
 		<tr><th><p th:text ="|ID: *{id}|"></p></th>
 		<tr><td><p th:text ="|名前: *{name}|"></p></td>
@@ -18,6 +18,7 @@
 		<tr><td><p th:text ="|住所: *{address}|"></p></td>
 		<tr><td><p th:text ="|卒業年: *{graduation}|"></p></td>
 	</table>
+	<input type="hidden" th:value="*{id}" name="hiddenId">
 	<input type="submit" value="削除" />
 	<input type="button" value="中止" onclick="location.href='/'">
 </form>

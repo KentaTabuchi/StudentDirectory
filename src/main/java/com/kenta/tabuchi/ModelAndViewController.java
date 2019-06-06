@@ -130,7 +130,7 @@ public class ModelAndViewController {
 	public ModelAndView deleteRecordPost(
 		@RequestParam("id")String id,
 		ModelAndView mav) {
-		mav = new ModelAndView("forward:/delete_comfirm/2") ;
+
 		return mav;
 	}
 	@RequestMapping(value="/delete_comfirm/{id}",method=RequestMethod.GET)
@@ -140,6 +140,16 @@ public class ModelAndViewController {
 		mav.setViewName("delete_comfirm");
 		Optional<Student> record = repository.findById(Long.valueOf(id));
 		mav.addObject("formModel",record.get());
+		return mav;
+	}
+	@RequestMapping(value="/delete_comfirm",method=RequestMethod.POST)
+	public ModelAndView deleteComfirmPost(
+			@RequestParam("hiddenId")String id,
+			ModelAndView mav) {
+		mav.setViewName("index");
+		repository.deleteById(Long.valueOf(id));
+		Iterable<Student> list = repository.findAll();
+		mav.addObject("recordSet", list);
 		return mav;
 	}
 }
