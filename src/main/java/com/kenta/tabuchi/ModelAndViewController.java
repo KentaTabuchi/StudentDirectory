@@ -98,30 +98,38 @@ public class ModelAndViewController {
     public void csvDownload(HttpServletResponse response) {
     	logger.info("ページ遷移を確認");
         //文字コードと出力するCSVファイル名を設定
-        //response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=utf-8");
-        response.setContentType("application/octet-stream" + ";charset=utf-8");
-        response.setHeader("Content-Disposition", "attachment; filename=\"dl.csv\"");
-
+        response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=shift-jis");
+        //response.setContentType("application/octet-stream" + ";charset=utf-8");
+        response.setHeader("Content-Disposition", "attachment; filename=\"studentdirectory.csv\"");
+        List<Student> list =repository.findAll(); 
 		  try (PrintWriter pw = response.getWriter()) { 
-			  List<Student> list =repository.findAll(); 
-			  for (int i = 0; i < list.size(); i++) {
-				  long id =	list.get(i).getId();
-				  String name = list.get(i).getName();
-				  String email =list.get(i).getEmail();
-				  String address = list.get(i).getAddress();
-		  
-				  //CSVファイル内部に記載する形式で文字列を設定 
-				  String outputString = id + "," + name + "," + email
-				  + "," + address + "," + "\r\n";
-				  
-				  //CSVファイルに書き込み 
-				  pw.print(outputString); 
-				  } 
+			 
+			  StringBuilder sb= new StringBuilder();
+			  final String comma=",";
+			  final String newline="\r\n";
+			  list.forEach(student->{
+				   sb.append(student.getId());
+				   sb.append(comma);
+				   sb.append(student.getName());
+				   sb.append(comma);
+				   sb.append(student.getNamePhonetic());
+				   sb.append(comma);
+				   sb.append(student.getBirthday());
+				   sb.append(comma);
+				   sb.append(student.getPhone());
+				   sb.append(comma);
+				   sb.append(student.getEmail());
+				   sb.append(comma);
+				   sb.append(student.getAddress());
+				   sb.append(comma);
+				   sb.append(student.getGraduation());
+				   sb.append(comma);
+				   sb.append(newline);
+			  });
+			  pw.print(sb.toString());  //write to CSV file;
 		  } catch (IOException e) {
 		  e.printStackTrace(); 
 		  }
-		 
-        
     }
 	
 	/** 
