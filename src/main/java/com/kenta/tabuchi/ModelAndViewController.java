@@ -100,26 +100,27 @@ public class ModelAndViewController {
         //文字コードと出力するCSVファイル名を設定
         //response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=utf-8");
         response.setContentType("application/octet-stream" + ";charset=utf-8");
-        response.setHeader("Content-Disposition", "attachment;filename=\test.csv\"");
-        try {
-			response.getWriter().write("hello world");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        //try-with-resources文を使うことでclose処理を自動化
-		/*
-		 * try (PrintWriter pw = response.getWriter()) { List<Student> list =
-		 * repository.findAll(); for (int i = 0; i < list.size(); i++) { long id =
-		 * list.get(i).getId(); String name = list.get(i).getName(); String email =
-		 * list.get(i).getEmail(); String address = list.get(i).getAddress();
-		 * 
-		 * //CSVファイル内部に記載する形式で文字列を設定 String outputString = id + "," + name + "," + email
-		 * + "," + address + "," + "\r\n";
-		 * 
-		 * //CSVファイルに書き込み pw.print(outputString); } } catch (IOException e) {
-		 * e.printStackTrace(); }
-		 */
+        response.setHeader("Content-Disposition", "attachment; filename=\"dl.csv\"");
+
+		  try (PrintWriter pw = response.getWriter()) { 
+			  List<Student> list =repository.findAll(); 
+			  for (int i = 0; i < list.size(); i++) {
+				  long id =	list.get(i).getId();
+				  String name = list.get(i).getName();
+				  String email =list.get(i).getEmail();
+				  String address = list.get(i).getAddress();
+		  
+				  //CSVファイル内部に記載する形式で文字列を設定 
+				  String outputString = id + "," + name + "," + email
+				  + "," + address + "," + "\r\n";
+				  
+				  //CSVファイルに書き込み 
+				  pw.print(outputString); 
+				  } 
+		  } catch (IOException e) {
+		  e.printStackTrace(); 
+		  }
+		 
         
     }
 	
