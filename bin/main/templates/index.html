@@ -14,15 +14,13 @@
 		<input type="button" onclick="location.href='edit_select'" value="編集">
 		<input type="button" onclick="location.href='find_record'" value="検索">
 		<input type="button" onclick="location.href='delete_record'" value="削除">
-		<br>
-			<h2>項目の並べ替え</h2>
-		<br>
+		<hr>
 		<input type="submit" name="onOderByNameClick" value="名前順">
 		<input type="submit" name="onOderByIdClick" value="ID順">
 		<input type="submit" name="onOderByBirthdayClick" value="誕生日順">
-		<br>
+		<hr>
 		<input type="submit" name="onCsvImportClick" value="CSVからインポート">
-		<input type="file" name="upload_file">	
+		<input type="submit" name="onCsvExportClick" value="CSVへエクスポート">	
 	</form>
 	<p th:text="${file_name}"></p>
 	<table>

@@ -7,15 +7,18 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -84,6 +87,17 @@ public class ModelAndViewController {
 		CsvReader csvReader = new CsvReader();
 		csvReader.addTableFromCsv(uploadFile,repository);
 		mav = new ModelAndView("redirect:/");
+		return mav;
+	}	
+	@RequestMapping(value="/",params="onCsvExportClick",method=RequestMethod.POST)
+	@GetMapping(value="*.csv",produces = MediaType.APPLICATION_OCTET_STREAM_VALUE + "; charset=Shift_JIS; Content-Disposition: attachment")
+	@ResponseBody
+	public ModelAndView indexPostCsvExport(
+			@RequestParam("upload_file")MultipartFile uploadFile,
+			ModelAndView mav) 
+	{
+		logger.info("CSVからインポートがクリックされた");
+
 		return mav;
 	}	
 
