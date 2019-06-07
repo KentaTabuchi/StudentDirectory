@@ -24,6 +24,10 @@ public class Student {
 	@NotEmpty
 	private String name;
 	
+	@Column(length=50,nullable=false)
+	@NotEmpty
+	private String namePhonetic;
+	
 	@Column(nullable=true)
 	@Pattern(regexp="....[/]..[/]..")
 	private String birthday;
@@ -84,5 +88,11 @@ public class Student {
 	}
 	public void setGraduation(String graduation) {
 		this.graduation = graduation;
+	}
+	public String getNamePhonetic() {
+		return namePhonetic;
+	}
+	public void setNamePhonetic(String namePhonetic) {
+		this.namePhonetic = namePhonetic;
 	}
 }

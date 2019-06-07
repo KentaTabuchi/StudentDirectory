@@ -19,5 +19,8 @@ import com.kenta.tabuchi.Student;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
 	public List<Student> findByNameLike(String name);
-	public List<Student> findAllByOrderByName();
+	public List<Student> findAllByOrderByNamePhonetic();
+	public List<Student> findAllByOrderById();
+	public List<Student> findAllByOrderByBirthday();
+	
 }

@@ -29,11 +29,12 @@ public class CsvReader {
 			Student student = new Student();
 			String[] data = line.split(",", -1);
 			student.setName(data[1]);
-			student.setBirthday(data[2]);
-			student.setPhone(data[3]);
-			student.setEmail(data[4]);
-			student.setAddress(data[5]);
-			student.setGraduation(data[6]);
+			student.setNamePhonetic(data[2]);
+			student.setBirthday(data[3]);
+			student.setPhone(data[4]);
+			student.setEmail(data[5]);
+			student.setAddress(data[6]);
+			student.setGraduation(data[7]);
 			repository.saveAndFlush(student);
 		});
 	}

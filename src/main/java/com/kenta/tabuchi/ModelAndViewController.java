@@ -29,7 +29,6 @@ public class ModelAndViewController {
 	@Autowired
 	StudentRepository repository;
 	
-
 	@PostConstruct
 	public void init() {
 		TestData testData = new TestData();
@@ -50,10 +49,23 @@ public class ModelAndViewController {
 	
 
 	@RequestMapping(value="/",params="onOderByNameClick",method=RequestMethod.POST)
-	public ModelAndView indexPostSort(ModelAndView mav) {
-		logger.info("ソートボタンクリック");
+	public ModelAndView indexPostSortByName(ModelAndView mav) {
 		mav.setViewName("index");
-		Iterable<Student>list = repository.findAllByOrderByName();
+		Iterable<Student>list = repository.findAllByOrderByNamePhonetic();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
+	@RequestMapping(value="/",params="onOderByIdClick",method=RequestMethod.POST)
+	public ModelAndView indexPostSortById(ModelAndView mav) {
+		mav.setViewName("index");
+		Iterable<Student>list = repository.findAllByOrderById();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
+	@RequestMapping(value="/",params="onOderByBirthdayClick",method=RequestMethod.POST)
+	public ModelAndView indexPostSortByBirthday(ModelAndView mav) {
+		mav.setViewName("index");
+		Iterable<Student>list = repository.findAllByOrderByBirthday();
 		mav.addObject("recordSet", list);
 		return mav;
 	}
@@ -200,4 +212,5 @@ public class ModelAndViewController {
 		repository.saveAndFlush(student);
 		return new ModelAndView("redirect:/");
 	}
+
 }
