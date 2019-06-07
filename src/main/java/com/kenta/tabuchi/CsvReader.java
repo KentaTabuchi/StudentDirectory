@@ -15,7 +15,6 @@ import com.kenta.tabuchi.repositories.StudentRepository;
 
 public class CsvReader {
 	private static final Logger logger = LoggerFactory.getLogger(CsvReader.class);
-    
 
 	
 	/**
@@ -24,7 +23,7 @@ public class CsvReader {
 	 * @param repository
 	 */
 	public void addTableFromCsv(MultipartFile uploadFile,StudentRepository repository) {
-		logger.info("ログテスト");
+	
 		List<String> lines=fileContents(uploadFile);
 		lines.forEach(line->{
 			Student student = new Student();

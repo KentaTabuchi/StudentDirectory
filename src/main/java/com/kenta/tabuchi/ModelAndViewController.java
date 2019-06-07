@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +23,9 @@ import com.kenta.tabuchi.repositories.StudentRepository;
 
 @Controller
 public class ModelAndViewController {
-	
+
+	private static final Logger logger = LoggerFactory.getLogger(CsvReader.class);
+
 	@Autowired
 	StudentRepository repository;
 	
@@ -37,28 +41,36 @@ public class ModelAndViewController {
 	 * @return
 	 */
 	@RequestMapping(value="/",method=RequestMethod.GET)
-	public ModelAndView index(ModelAndView mav) {
+	public ModelAndView indexGet(ModelAndView mav) {
 		mav.setViewName("index");
 		Iterable<Student> list = repository.findAll();
 		mav.addObject("recordSet", list);
 		return mav;
 	}
 	
+
+	@RequestMapping(value="/",params="onOderByNameClick",method=RequestMethod.POST)
+	public ModelAndView indexPostSort(ModelAndView mav) {
+		logger.info("ソートボタンクリック");
+		mav.setViewName("index");
+		Iterable<Student>list = repository.findAllByOrderByName();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
+	                                         
 	/**
 	 * When user push button for find by name.This method will invoke.
 	 * @param mav
 	 * @return
 	 */
-	@RequestMapping(value="/",method=RequestMethod.POST)
-	public ModelAndView post(
+	@RequestMapping(value="/",params="onCsvImportClick",method=RequestMethod.POST)
+	public ModelAndView indexPostCsv(
 			@RequestParam("upload_file")MultipartFile uploadFile,
 			ModelAndView mav) 
 	{
-		mav.setViewName("index");
-		mav.addObject("file_name",uploadFile.getOriginalFilename());
+		logger.info("CSVからインポートがクリックされた");
 		CsvReader csvReader = new CsvReader();
 		csvReader.addTableFromCsv(uploadFile,repository);
-		mav.addObject("file_contents",csvReader.getLinesFromCsv(uploadFile));
 		mav = new ModelAndView("redirect:/");
 		return mav;
 	}	

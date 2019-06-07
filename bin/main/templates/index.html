@@ -14,8 +14,10 @@
 		<input type="button" onclick="location.href='edit_select'" value="編集">
 		<input type="button" onclick="location.href='find_record'" value="検索">
 		<input type="button" onclick="location.href='delete_record'" value="削除">
+		<input type="submit" name="onOderByNameClick" value="名前順">
+		
 		<br>
-		<input type="submit" value="CSVからインポート">
+		<input type="submit" name="onCsvImportClick" value="CSVからインポート">
 		<input type="file" name="upload_file">	
 	</form>
 	<p th:text="${file_name}"></p>
