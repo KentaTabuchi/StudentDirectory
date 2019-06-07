@@ -1,14 +1,19 @@
 package com.kenta.tabuchi;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.MimeTypeUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -86,7 +91,37 @@ public class ModelAndViewController {
 		mav = new ModelAndView("redirect:/");
 		return mav;
 	}	
-
+    /**
+     * ユーザー情報csv形式でダウンロードする
+     */
+    @RequestMapping("csvDownload")
+    public void csvDownload(HttpServletResponse response) {
+    	logger.info("ページ遷移を確認");
+        //文字コードと出力するCSVファイル名を設定
+        //response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=utf-8");
+        response.setContentType("application/octet-stream" + ";charset=utf-8");
+        response.setHeader("Content-Disposition", "attachment;filename=\test.csv\"");
+        try {
+			response.getWriter().write("hello world");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        //try-with-resources文を使うことでclose処理を自動化
+		/*
+		 * try (PrintWriter pw = response.getWriter()) { List<Student> list =
+		 * repository.findAll(); for (int i = 0; i < list.size(); i++) { long id =
+		 * list.get(i).getId(); String name = list.get(i).getName(); String email =
+		 * list.get(i).getEmail(); String address = list.get(i).getAddress();
+		 * 
+		 * //CSVファイル内部に記載する形式で文字列を設定 String outputString = id + "," + name + "," + email
+		 * + "," + address + "," + "\r\n";
+		 * 
+		 * //CSVファイルに書き込み pw.print(outputString); } } catch (IOException e) {
+		 * e.printStackTrace(); }
+		 */
+        
+    }
 	
 	/** 
 	 * When user push add_record button,Active page will move there.and this method 
