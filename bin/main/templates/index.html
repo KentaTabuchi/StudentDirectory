@@ -19,9 +19,11 @@
 		<input type="file" name="upload_file">	
 		
 			<h2>項目の並べ替え</h2>
-		<input type="submit" name="onOderByNameClick" value="名前順">
-		<input type="submit" name="onOderByIdClick" value="ID順">
-		<input type="submit" name="onOderByBirthdayClick" value="誕生日順">
+		<input type="radio" name="sort_radio" value="1">名前順
+		<input type="radio" name="sort_radio" value="2">ID順
+		<input type="radio" name="sort_radio" value="3">誕生日順
+		<input type="button" value="並べ替え" onclick="sort()">
+
 		<br>
 
 	</form>
