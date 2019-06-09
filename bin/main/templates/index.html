@@ -22,11 +22,10 @@
 		<input type="radio" name="sort_radio" value="1">名前順
 		<input type="radio" name="sort_radio" value="2">ID順
 		<input type="radio" name="sort_radio" value="3">誕生日順
-		<input type="button" value="並べ替え" onclick="sort()">
-
-		<br>
-
+		<input type="button" value="並べ替え" onclick="sort('値')">
 	</form>
+		<script src="js/script.js" th:href="@{/js/script.js}">
+		</script>
 	<p th:text="${file_name}"></p>
 	<table>
 	<tr th:each="line:${file_contents}">

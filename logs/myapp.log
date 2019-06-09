@@ -302,3 +302,143 @@
 2019-06-10 00:53:37.366  INFO 37732 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-06-10 00:53:37.372  INFO 37732 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
 2019-06-10 00:53:42.677  INFO 37732 --- [http-nio-8080-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-06-10 01:00:24.099  INFO 37732 --- [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-06-10 01:00:24.102  INFO 37732 --- [RMI TCP Connection(16)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:00:24.102  INFO 37732 --- [RMI TCP Connection(16)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:00:24.103  INFO 37732 --- [RMI TCP Connection(16)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-06-10 01:00:24.108  INFO 37732 --- [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-10 01:00:24.109  INFO 37732 --- [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-10 01:00:25.890  INFO 38336 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Starting StudentDirectoryApplication on tabuchikenta.local with PID 38336 (/Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory/bin/main started by tabuchikenta in /Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory)
+2019-06-10 01:00:25.892  INFO 38336 --- [main] c.k.tabuchi.StudentDirectoryApplication  : No active profile set, falling back to default profiles: default
+2019-06-10 01:00:26.341  INFO 38336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 01:00:26.393  INFO 38336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44ms. Found 1 repository interfaces.
+2019-06-10 01:00:26.661  INFO 38336 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3cf2d267] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 01:00:26.837  INFO 38336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 01:00:26.856  INFO 38336 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 01:00:26.856  INFO 38336 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 01:00:26.922  INFO 38336 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 01:00:26.922  INFO 38336 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1004 ms
+2019-06-10 01:00:27.032  INFO 38336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 01:00:27.102  INFO 38336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 01:00:27.140  INFO 38336 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-10 01:00:27.232  INFO 38336 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-10 01:00:27.233  INFO 38336 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-06-10 01:00:27.314  INFO 38336 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-10 01:00:27.392  INFO 38336 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-06-10 01:00:27.783  INFO 38336 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@750f64fe'
+2019-06-10 01:00:27.785  INFO 38336 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:00:28.225  INFO 38336 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:00:28.337  INFO 38336 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-06-10 01:00:28.451  INFO 38336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 01:00:28.453  INFO 38336 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Started StudentDirectoryApplication in 2.819 seconds (JVM running for 3.394)
+2019-06-10 01:00:45.475  INFO 38336 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 01:00:45.475  INFO 38336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 01:00:45.481  INFO 38336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-06-10 01:00:45.524  INFO 38336 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-06-10 01:01:56.771  INFO 38336 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-06-10 01:01:56.774  INFO 38336 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:01:56.774  INFO 38336 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:01:56.775  INFO 38336 --- [RMI TCP Connection(11)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-06-10 01:01:56.779  INFO 38336 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-10 01:01:56.781  INFO 38336 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-10 01:01:58.233  INFO 38341 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Starting StudentDirectoryApplication on tabuchikenta.local with PID 38341 (/Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory/bin/main started by tabuchikenta in /Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory)
+2019-06-10 01:01:58.235  INFO 38341 --- [main] c.k.tabuchi.StudentDirectoryApplication  : No active profile set, falling back to default profiles: default
+2019-06-10 01:01:58.694  INFO 38341 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 01:01:58.743  INFO 38341 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43ms. Found 1 repository interfaces.
+2019-06-10 01:01:59.003  INFO 38341 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9393098e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 01:01:59.173  INFO 38341 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 01:01:59.190  INFO 38341 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 01:01:59.190  INFO 38341 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 01:01:59.253  INFO 38341 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 01:01:59.253  INFO 38341 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 989 ms
+2019-06-10 01:01:59.359  INFO 38341 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 01:01:59.427  INFO 38341 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 01:01:59.467  INFO 38341 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-10 01:01:59.563  INFO 38341 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-10 01:01:59.564  INFO 38341 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-06-10 01:01:59.646  INFO 38341 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-10 01:01:59.726  INFO 38341 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-06-10 01:02:00.117  INFO 38341 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@52454457'
+2019-06-10 01:02:00.119  INFO 38341 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:02:00.558  INFO 38341 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:02:00.672  INFO 38341 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-06-10 01:02:00.786  INFO 38341 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 01:02:00.788  INFO 38341 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Started StudentDirectoryApplication in 2.823 seconds (JVM running for 3.227)
+2019-06-10 01:02:04.860  INFO 38341 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 01:02:04.861  INFO 38341 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 01:02:04.866  INFO 38341 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2019-06-10 01:02:04.908  INFO 38341 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-06-10 01:07:37.807  INFO 38341 --- [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-06-10 01:07:37.810  INFO 38341 --- [RMI TCP Connection(16)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:07:37.810  INFO 38341 --- [RMI TCP Connection(16)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:07:37.811  INFO 38341 --- [RMI TCP Connection(16)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-06-10 01:07:37.815  INFO 38341 --- [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-10 01:07:37.816  INFO 38341 --- [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-10 01:10:24.187  INFO 38358 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Starting StudentDirectoryApplication on tabuchikenta.local with PID 38358 (/Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory/bin/main started by tabuchikenta in /Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory)
+2019-06-10 01:10:24.190  INFO 38358 --- [main] c.k.tabuchi.StudentDirectoryApplication  : No active profile set, falling back to default profiles: default
+2019-06-10 01:10:24.630  INFO 38358 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 01:10:24.674  INFO 38358 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39ms. Found 1 repository interfaces.
+2019-06-10 01:10:24.912  INFO 38358 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b53961fc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 01:10:25.093  INFO 38358 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 01:10:25.113  INFO 38358 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 01:10:25.113  INFO 38358 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 01:10:25.188  INFO 38358 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 01:10:25.189  INFO 38358 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 973 ms
+2019-06-10 01:10:25.333  INFO 38358 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 01:10:25.431  INFO 38358 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 01:10:25.472  INFO 38358 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-10 01:10:25.572  INFO 38358 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-10 01:10:25.574  INFO 38358 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-06-10 01:10:25.667  INFO 38358 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-10 01:10:25.751  INFO 38358 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-06-10 01:10:26.155  INFO 38358 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@73afe2b7'
+2019-06-10 01:10:26.158  INFO 38358 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:10:26.628  INFO 38358 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:10:26.736  INFO 38358 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-06-10 01:10:26.833  INFO 38358 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 01:10:26.835  INFO 38358 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Started StudentDirectoryApplication in 2.893 seconds (JVM running for 3.479)
+2019-06-10 01:10:31.632  INFO 38358 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 01:10:31.632  INFO 38358 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 01:10:31.638  INFO 38358 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-06-10 01:10:31.680  INFO 38358 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-06-10 01:11:24.535  INFO 38358 --- [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-06-10 01:11:24.538  INFO 38358 --- [RMI TCP Connection(9)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:11:24.539  INFO 38358 --- [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:11:24.539  INFO 38358 --- [RMI TCP Connection(9)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-06-10 01:11:24.544  INFO 38358 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-10 01:11:24.545  INFO 38358 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-10 01:11:25.967  INFO 38367 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Starting StudentDirectoryApplication on tabuchikenta.local with PID 38367 (/Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory/bin/main started by tabuchikenta in /Users/tabuchikenta/Documents/workspace-spring-tool-suite-4-4.2.2.RELEASE/StudentDirectory)
+2019-06-10 01:11:25.969  INFO 38367 --- [main] c.k.tabuchi.StudentDirectoryApplication  : No active profile set, falling back to default profiles: default
+2019-06-10 01:11:26.425  INFO 38367 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 01:11:26.473  INFO 38367 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 1 repository interfaces.
+2019-06-10 01:11:26.743  INFO 38367 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fc17e1ad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 01:11:26.924  INFO 38367 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 01:11:26.941  INFO 38367 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 01:11:26.941  INFO 38367 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 01:11:27.003  INFO 38367 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 01:11:27.004  INFO 38367 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1008 ms
+2019-06-10 01:11:27.115  INFO 38367 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 01:11:27.182  INFO 38367 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 01:11:27.219  INFO 38367 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-10 01:11:27.308  INFO 38367 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-10 01:11:27.309  INFO 38367 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-06-10 01:11:27.395  INFO 38367 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-10 01:11:27.478  INFO 38367 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-06-10 01:11:27.884  INFO 38367 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5c53f292'
+2019-06-10 01:11:27.887  INFO 38367 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:11:28.320  INFO 38367 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:11:28.432  INFO 38367 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-06-10 01:11:28.546  INFO 38367 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 01:11:28.549  INFO 38367 --- [main] c.k.tabuchi.StudentDirectoryApplication  : Started StudentDirectoryApplication in 2.837 seconds (JVM running for 3.25)
+2019-06-10 01:11:33.254  INFO 38367 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 01:11:33.254  INFO 38367 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 01:11:33.259  INFO 38367 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2019-06-10 01:11:33.301  INFO 38367 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
