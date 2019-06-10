@@ -44,37 +44,39 @@ public class ModelAndViewController {
 	 * @param mav
 	 * @return
 	 */
-	@RequestMapping(value="/",method=RequestMethod.GET)
-	public ModelAndView indexGet(ModelAndView mav) {
-		mav.setViewName("index");
-		Iterable<Student> list = repository.findAll();
-		mav.addObject("recordSet", list);
-		return mav;
-	}
+	/*
+	 * @RequestMapping(value="/",method=RequestMethod.GET) public ModelAndView
+	 * indexGet(ModelAndView mav) { mav.setViewName("index"); Iterable<Student>
+	 * list=null;
+	 * 
+	 * list = repository.findAll(); mav.addObject("recordSet", list); return mav; }
+	 */
 	
-
-	@RequestMapping(value="/",params="onOderByNameClick",method=RequestMethod.POST)
-	public ModelAndView indexPostSortByName(ModelAndView mav) {
+	@RequestMapping(value= {"/","/{num}"},method=RequestMethod.GET)
+	public ModelAndView indexGet(@PathVariable(name="num",required=false)Integer num,ModelAndView mav) {
 		mav.setViewName("index");
-		Iterable<Student>list = repository.findAllByOrderByNamePhonetic();
+		Iterable<Student> list= null;
+		if(num==null) {
+			list= repository.findAll();
+		}
+		else {
+			switch(num) {
+			case 0:
+				list = repository.findAllByOrderByNamePhonetic();
+				break;
+			case 1:
+				list = repository.findAllByOrderById();
+				break;
+			case 2:
+				list = repository.findAllByOrderByBirthday();
+				break;
+			}
+		}
 		mav.addObject("recordSet", list);
 		return mav;
+		
 	}
-	@RequestMapping(value="/",params="onOderByIdClick",method=RequestMethod.POST)
-	public ModelAndView indexPostSortById(ModelAndView mav) {
-		mav.setViewName("index");
-		Iterable<Student>list = repository.findAllByOrderById();
-		mav.addObject("recordSet", list);
-		return mav;
-	}
-	@RequestMapping(value="/",params="onOderByBirthdayClick",method=RequestMethod.POST)
-	public ModelAndView indexPostSortByBirthday(ModelAndView mav) {
-		mav.setViewName("index");
-		Iterable<Student>list = repository.findAllByOrderByBirthday();
-		mav.addObject("recordSet", list);
-		return mav;
-	}
-	                                         
+                                    
 	/**
 	 * When user push button for find by name.This method will invoke.
 	 * @param mav
