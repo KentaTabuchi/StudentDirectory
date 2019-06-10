@@ -22,9 +22,22 @@
 		<input type="radio" name="sort_radio" value="1">名前順
 		<input type="radio" name="sort_radio" value="2">ID順
 		<input type="radio" name="sort_radio" value="3">誕生日順
-		<input type="button" value="並べ替え" onclick="sort('値')">
+		<input type="button" value="並べ替え" onclick="sort('sort_radio')">
 	</form>
-		<script src="js/script.js" th:href="@{/js/script.js}">
+		<script type="text/javascript" >
+		function sort(objName){
+			'use strict';
+			var radios = document.getElementsByName(objName);
+			var result;
+			for(var i=0;i<radios.length;i++){
+				if(radios[i].checked){
+					result = i;
+				}
+			}
+			alert(result);
+			document.location.href = "/"+result;
+
+		}
 		</script>
 	<p th:text="${file_name}"></p>
 	<table>
