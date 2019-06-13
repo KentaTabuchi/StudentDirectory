@@ -19,6 +19,7 @@ public class StudentDirectoryApplication {
         	StudentDirectoryApplication m = ctx.getBean(StudentDirectoryApplication.class);
             m.connect();
         }
+      //SpringApplication.run(StudentDirectoryApplication.class, args);
 		}
 	private void connect() {
 		try {
@@ -29,7 +30,7 @@ public class StudentDirectoryApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//SpringApplication.run(StudentDirectoryApplication.class, args);
+		
 	    List<Map<String, Object>> list = jdbc.queryForList("SELECT * FROM M_student");
         list.forEach(System.out::println);
 
