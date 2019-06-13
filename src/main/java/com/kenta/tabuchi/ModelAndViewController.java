@@ -37,7 +37,7 @@ public class ModelAndViewController {
 	@PostConstruct
 	public void init() {
 		TestData testData = new TestData();
-		testData.setSampleDataToDB(repository);
+		//testData.setSampleDataToDB(repository);
 	}
 	/**
 	 * When user access "index.html" with no post data.This method will invoke.
