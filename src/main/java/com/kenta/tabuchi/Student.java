@@ -2,6 +2,7 @@ package com.kenta.tabuchi;
 
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Range;
 
@@ -9,9 +10,9 @@ import org.hibernate.validator.constraints.Range;
 public class Student {
 
 	private Long id;
-
+	@NotNull
 	private String name;
-	
+	@NotNull
 	private String namePhonetic;
 	
 	@Pattern(regexp="....[/]..[/]..")

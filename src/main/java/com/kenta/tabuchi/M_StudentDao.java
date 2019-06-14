@@ -91,7 +91,21 @@ public class M_StudentDao {
 		}
     	return students;
     }
-    
+    public List<Student> findByNameLike(String name){
+    	SSHConnection sshcon = null;
+    	List<Student> students = null;
+    	final String sql = "SELECT * FROM M_student WHERE name LIKE ?";
+    	try {
+			sshcon = new SSHConnection();
+	    	List<Map<String,Object>> list = this.jdbc.queryForList(sql,"%"+name+"%");
+	    	students = mapValuOfStudents(list);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    	return students;
+    }
     public void insert(Student student) {
     	SSHConnection sshcon = null;
     	final String sql = 
@@ -99,7 +113,7 @@ public class M_StudentDao {
     	
     	try {
 			sshcon = new SSHConnection();
-			String [] ps = new String[7];
+			String [] ps = new String[7];//setting prepared statement.
 			ps[0]=student.getName();
 			ps[1]=student.getNamePhonetic();
 			ps[2]=student.getBirthday();
@@ -108,15 +122,6 @@ public class M_StudentDao {
 			ps[5]=student.getAddress();
 			ps[6]=student.getGraduation();
 
-/*
-			ps[0]="テス テス";
-			ps[1]="tesu tesu";
-			ps[2]="1955/10/05";
-			ps[3]="090-1111-2222";
-			ps[4]="tesu.tesu@sample.com";
-			ps[5]="沖縄県辺野古";
-			ps[6]="1970";
-*/
 	    	this.jdbc.update(sql,ps[0],ps[1],ps[2],ps[3],ps[4],ps[5],ps[6]);
 		} catch (Throwable e) {
 			e.printStackTrace();

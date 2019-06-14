@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -86,6 +87,25 @@ public class ViewController {
 			adoptedMav = mav;
 		}
 		return adoptedMav;
+	}
+	@RequestMapping(value="/find_record",method=RequestMethod.GET)
+	public ModelAndView findRecord(
+			ModelAndView mav) {
+		mav.setViewName("find_record");
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		List<Student> recordset = dao.findAll();
+		mav.addObject("recordSet", recordset);
+		return mav;
+	}
+	@RequestMapping(value="/find_record",method=RequestMethod.POST)
+	public ModelAndView findRecordPost(
+			@RequestParam("name")String name,
+			ModelAndView mav) {
+		mav.setViewName("find_record");
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		List<Student> recordset = dao.findByNameLike(name);
+		mav.addObject("recordSet",recordset);
+		return mav;
 	}
 
 }
