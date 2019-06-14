@@ -14,10 +14,13 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile ('org.springframework.boot:spring-boot-starter-web')
-	compile('com.h2database:h2')
+	compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    compile 'mysql:mysql-connector-java:5.1.35'
+    compile 'com.jcraft:jsch:0.1.53'
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
 }

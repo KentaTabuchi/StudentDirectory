@@ -11,8 +11,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Range;
 
-@Entity
-@Table(name="M_Student")
+//@Entity
+//@Table(name="M_Student")
 public class Student {
 
 	@Id
