@@ -91,4 +91,37 @@ public class M_StudentDao {
 		}
     	return students;
     }
+    
+    public void insert(Student student) {
+    	SSHConnection sshcon = null;
+    	final String sql = 
+   "INSERT INTO M_student (name,namePhonetic,birthday,phone,email,address,graduation) VALUES(?,?,?,?,?,?,?)";
+    	
+    	try {
+			sshcon = new SSHConnection();
+			String [] ps = new String[7];
+			ps[0]=student.getName();
+			ps[1]=student.getNamePhonetic();
+			ps[2]=student.getBirthday();
+			ps[3]=student.getPhone();
+			ps[4]=student.getEmail();
+			ps[5]=student.getAddress();
+			ps[6]=student.getGraduation();
+
+/*
+			ps[0]="テス テス";
+			ps[1]="tesu tesu";
+			ps[2]="1955/10/05";
+			ps[3]="090-1111-2222";
+			ps[4]="tesu.tesu@sample.com";
+			ps[5]="沖縄県辺野古";
+			ps[6]="1970";
+*/
+	    	this.jdbc.update(sql,ps[0],ps[1],ps[2],ps[3],ps[4],ps[5],ps[6]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    }
 }

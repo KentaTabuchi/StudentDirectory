@@ -17,6 +17,12 @@
 				<div th:if="${#fields.hasErrors('name')}" 
 				th:errors="*{name}" th:errorclass="err"></div></td>
 		</tr>
+		<tr><td>ふりがな</td>
+			<td><input type="text" name="namePhonetic" th:value="*{namePhonetic}" th:errorclass="err"
+				placeholder="すずき いちろう"/>
+				<div th:if="${#fields.hasErrors('namePhonetic')}" 
+				th:errors="*{namePhonetic}" th:errorclass="err"></div></td>
+		</tr>
 		<tr><td>誕生日</td>
 			<td><input type="text" name="birthday" th:value="*{birthday}" th:errorclass="err"
 			placeholder="1900/01/11"/>
