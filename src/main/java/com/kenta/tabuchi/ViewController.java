@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -144,5 +145,35 @@ public class ViewController {
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}
+	@RequestMapping(value="/edit_form/{id}",method=RequestMethod.GET)
+	public ModelAndView editForm(
+			@PathVariable("id")String id,
+			ModelAndView mav) {
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		mav.setViewName("edit_form");
+		List<Student> recordset = dao.findById(id);
+		mav.addObject("formModel",recordset.get(0));
+		return mav;
+	}
+
+	@RequestMapping(value="/edit_form",method=RequestMethod.POST)
+	public ModelAndView editFormPost(
+			@ModelAttribute("formModel")@Validated Student student,
+			BindingResult result,
+			ModelAndView mav) {
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		dao.updateById(student);
+		return new ModelAndView("redirect:/");
+	}
+	@RequestMapping(value="/edit_select",method=RequestMethod.GET)
+	public ModelAndView editSelectGet(
+			ModelAndView mav) {
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		List<Student> recordset = dao.findAll();
+		mav.addObject("recordSet", recordset);
+		mav.setViewName("edit_select");
+		return mav;
+	}
+
 
 }

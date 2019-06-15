@@ -145,6 +145,53 @@ public class M_StudentDao {
 			sshcon.closeSSH();
 		}
     }
+    
+    public void updateById(Student student) {
+    	SSHConnection sshcon = null;
+    	final String sql = 
+   "UPDATE M_student SET name=?,namePhonetic=?,birthday=?,phone=?,email=?,address=?,graduation=? WHERE id=?";
+    	
+    	try {
+    		ArrayList<Student> list = new ArrayList<Student>();
+    		list.add(student);
+    		list.forEach(System.out::println);
+    		
+			sshcon = new SSHConnection();
+			String [] ps = new String[8];//setting prepared statement.
+			ps[0]=student.getName();
+			ps[1]=student.getNamePhonetic();
+			ps[2]=student.getBirthday();
+			ps[3]=student.getPhone();
+			ps[4]=student.getEmail();
+			ps[5]=student.getAddress();
+			ps[6]=student.getGraduation();
+			ps[7]=student.getId().toString();
+
+	    	this.jdbc.update(sql,ps[0],ps[1],ps[2],ps[3],ps[4],ps[5],ps[6],ps[7]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    }
+    public void updateTest(Student student) {
+    	SSHConnection sshcon = null;
+    	final String sql = 
+   "UPDATE M_student SET name = ? WHERE id = ?";
+    	
+    	try {
+			sshcon = new SSHConnection();
+			String [] ps = new String[8];//setting prepared statement.
+			ps[0]="テストテスト";
+			ps[1]="1";
+
+	    	this.jdbc.update(sql,ps[0],ps[1]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    }
     public void deleteById(String id) {
     	SSHConnection sshcon = null;
     	final String sql = "DELETE FROM M_student WHERE id = ?";
