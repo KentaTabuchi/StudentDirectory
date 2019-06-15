@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 public class M_StudentDao {
 
@@ -91,6 +90,23 @@ public class M_StudentDao {
 		}
     	return students;
     }
+    
+    public List<Student> findById(String id){
+    	SSHConnection sshcon = null;
+    	List<Student> students = null;
+    	final String sql = "SELECT * FROM M_student WHERE id = ?";
+    	try {
+			sshcon = new SSHConnection();
+	    	List<Map<String,Object>> list = this.jdbc.queryForList(sql,id);
+	    	students = mapValuOfStudents(list);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    	return students;
+    }
+    
     public List<Student> findByNameLike(String name){
     	SSHConnection sshcon = null;
     	List<Student> students = null;
@@ -123,6 +139,19 @@ public class M_StudentDao {
 			ps[6]=student.getGraduation();
 
 	    	this.jdbc.update(sql,ps[0],ps[1],ps[2],ps[3],ps[4],ps[5],ps[6]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    }
+    public void deleteById(String id) {
+    	SSHConnection sshcon = null;
+    	final String sql = "DELETE FROM M_student WHERE id = ?";
+    	
+    	try {
+			sshcon = new SSHConnection();
+	    	this.jdbc.update(sql,id);
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}finally{

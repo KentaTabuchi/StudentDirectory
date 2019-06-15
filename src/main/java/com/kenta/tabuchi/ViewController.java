@@ -107,5 +107,42 @@ public class ViewController {
 		mav.addObject("recordSet",recordset);
 		return mav;
 	}
+	@RequestMapping(value="/delete_record",method=RequestMethod.GET)
+	public ModelAndView deleteRecord(
+			ModelAndView mav) {
+		mav.setViewName("delete_record");
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		Iterable<Student> list = dao.findAll();
+		mav.addObject("recordSet", list);
+		return mav;
+	}
+	@RequestMapping(value="/delete_record",method=RequestMethod.POST)
+	public ModelAndView deleteRecordPost(
+		@RequestParam("id")String id,
+		ModelAndView mav) {
+
+		return mav;
+	}
+	@RequestMapping(value="/delete_comfirm/{id}",method=RequestMethod.GET)
+	public ModelAndView deleteComfirm(
+			@PathVariable("id")String id,
+			ModelAndView mav) {
+		mav.setViewName("delete_comfirm");
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		List<Student> recordset = dao.findById(id);
+		mav.addObject("formModel",recordset.get(0));
+		return mav;
+	}
+	@RequestMapping(value="/delete_comfirm",method=RequestMethod.POST)
+	public ModelAndView deleteComfirmPost(
+			@RequestParam("hiddenId")String id,
+			ModelAndView mav) {
+		mav.setViewName("index");
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		dao.deleteById(id);
+		List<Student> recordset = dao.findAll();
+		mav.addObject("recordSet", recordset);
+		return mav;
+	}
 
 }
