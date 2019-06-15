@@ -1,16 +1,11 @@
 package com.kenta.tabuchi;
 
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.MimeTypeUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,17 +24,17 @@ public class ViewController {
     private JdbcTemplate jdbc;
     
 	
-	@RequestMapping(value= {"/","/{num}"},method=RequestMethod.GET)
-	public ModelAndView indexGet(@PathVariable(name="num",required=false)Integer num,ModelAndView mav) {
+	@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
+	public ModelAndView indexGet(@RequestParam(name="order",required=false)Integer order,ModelAndView mav) {
 		mav.setViewName("index");
 		M_StudentDao dao = new M_StudentDao(jdbc);
 		List<Student> recordset = null;
 	
-		if(num==null) {
+		if(order==null) {
 			recordset= dao.findAll();
 		}
 		else {
-			switch(num) {
+			switch(order) {
 			case 0:
 				recordset = dao.findAllByOrderByNamePhonetic();
 				break;

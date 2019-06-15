@@ -7,5 +7,8 @@
 					result = i;
 				}
 			}
-			document.location.href = "/"+result;
+			alert('test');
+			document.location.href = "/?order="+result;
+			
 		}
+		
