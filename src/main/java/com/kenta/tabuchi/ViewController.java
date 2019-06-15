@@ -1,13 +1,16 @@
 package com.kenta.tabuchi;
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.MimeTypeUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -174,6 +178,30 @@ public class ViewController {
 		mav.setViewName("edit_select");
 		return mav;
 	}
-
+	/**
+	 * When user push button for find by name.This method will invoke.
+	 * @param mav
+	 * @return
+	 */
+	@RequestMapping(value="/",params="onCsvImportClick",method=RequestMethod.POST)
+	public ModelAndView indexPostCsv(
+			@RequestParam("upload_file")MultipartFile uploadFile,
+			ModelAndView mav)
+	{
+		CsvReader csvReader = new CsvReader();
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		csvReader.addTableFromCsv(uploadFile,dao);
+		mav = new ModelAndView("redirect:/");
+		return mav;
+	}
+    /**
+     * This method downloads CSV file that contains all records form M_Students table. 
+     */
+    @RequestMapping("csvDownload")
+    public void csvDownload(HttpServletResponse response) {
+    	M_StudentDao dao = new M_StudentDao(jdbc);
+    	CsvReader csvReader = new CsvReader();
+    	csvReader.exportCSV(response, dao);
+    }
 
 }

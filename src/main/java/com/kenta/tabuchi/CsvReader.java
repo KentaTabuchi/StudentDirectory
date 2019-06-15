@@ -4,12 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CsvReader {
@@ -21,7 +25,7 @@ public class CsvReader {
 	 * @param uploadFile
 	 * @param repository
 	 */
-	public void addTableFromCsv(MultipartFile uploadFile,StudentRepository repository) {
+	public void addTableFromCsv(MultipartFile uploadFile,M_StudentDao dao) {
 	
 		List<String> lines=fileContents(uploadFile);
 		lines.forEach(line->{
@@ -34,7 +38,7 @@ public class CsvReader {
 			student.setEmail(data[5]);
 			student.setAddress(data[6]);
 			student.setGraduation(data[7]);
-			repository.saveAndFlush(student);
+			dao.insert(student);
 		});
 	}
 	
@@ -85,5 +89,41 @@ public class CsvReader {
 			e.printStackTrace();
 		}
 		return lines;
+	}
+	
+	public void exportCSV(HttpServletResponse response,M_StudentDao dao) {
+        
+        response.setContentType(MimeTypeUtils.APPLICATION_OCTET_STREAM_VALUE + ";charset=shift-jis");
+        response.setHeader("Content-Disposition", "attachment; filename=\"studentdirectory.csv\"");
+       
+        List<Student> list =dao.findAll();
+		  try (PrintWriter pw = response.getWriter()) {
+
+			  StringBuilder sb= new StringBuilder();
+			  final String comma=",";
+			  final String newline="\r\n";
+			  list.forEach(student->{
+				   sb.append(student.getId());
+				   sb.append(comma);
+				   sb.append(student.getName());
+				   sb.append(comma);
+				   sb.append(student.getNamePhonetic());
+				   sb.append(comma);
+				   sb.append(student.getBirthday());
+				   sb.append(comma);
+				   sb.append(student.getPhone());
+				   sb.append(comma);
+				   sb.append(student.getEmail());
+				   sb.append(comma);
+				   sb.append(student.getAddress());
+				   sb.append(comma);
+				   sb.append(student.getGraduation());
+				   sb.append(comma);
+				   sb.append(newline);
+			  });
+			  pw.print(sb.toString());  //write to CSV file;
+		  } catch (IOException e) {
+		  e.printStackTrace();
+		  }
 	}
 }
