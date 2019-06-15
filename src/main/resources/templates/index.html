@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<script type="text/javascript" src="js/script.js" th:href="@{/js/script.js}"></script>
 <link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
 <meta charset="UTF-8">
 <title>学生名簿</title>
 </head>
-<body>
+<body onload="restoreRadio('sort_radio')">
 	<h1>生徒一覧</h1>
-	
+	<input type="hidden" th:value="${order}" id="order">
 	<!-- This is menu block at top of index page. -->
 	<form method="post" action="/" enctype="multipart/form-data">
 		<input type="button" onclick="location.href='add_record'" value="新規追加">
@@ -24,8 +25,7 @@
 		<input type="radio" name="sort_radio" value="3">誕生日順
 		<input type="button" value="並べ替え" onclick="sort('sort_radio')">
 	</form>
-		<script type="text/javascript" src="js/script.js" th:href="@{/js/script.js}">
-		</script>
+
 	<p th:text="${file_name}"></p>
 	<table>
 	<tr th:each="line:${file_contents}">
@@ -33,5 +33,6 @@
 	</tr>
 	</table>
 <div th:include="table_fragment::frag_body"></div>
+
 </body>
 </html>

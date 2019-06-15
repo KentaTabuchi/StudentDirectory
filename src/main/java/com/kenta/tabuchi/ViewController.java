@@ -29,24 +29,17 @@ public class ViewController {
 		mav.setViewName("index");
 		M_StudentDao dao = new M_StudentDao(jdbc);
 		List<Student> recordset = null;
-	
 		if(order==null) {
 			recordset= dao.findAll();
 		}
 		else {
 			switch(order) {
-			case 0:
-				recordset = dao.findAllByOrderByNamePhonetic();
-				break;
-			case 1:
-				recordset = dao.findAllByOrderById();
-				break;
-			case 2:
-				recordset = dao.findAllByOrderByBirthday();
-				break;
+			case 0:recordset = dao.findAllByOrderByNamePhonetic();	break;
+			case 1:recordset = dao.findAllByOrderById(); 			break;
+			case 2:recordset = dao.findAllByOrderByBirthday();		break;
 			}
 		}
-	
+		mav.addObject("order",order);
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}

@@ -1,14 +1,23 @@
-		function sort(objName){
-			'use strict';
-			var radios = document.getElementsByName(objName);
-			var result;
-			for(var i=0;i<radios.length;i++){
-				if(radios[i].checked){
-					result = i;
-				}
-			}
-			alert('test');
-			document.location.href = "/?order="+result;
-			
+function sort(objName) {
+	'use strict';
+	var radios = document.getElementsByName(objName);
+	var result;
+	for (var i = 0; i < radios.length; i++) {
+		if (radios[i].checked) {
+			result = i;
+		}
+	}
+	document.location.href = "/?order=" + result;
 		}
 		
+function restoreRadio(objName){
+	'use strict';
+	var num = document.getElementById('order');
+	var radios = document.getElementsByName(objName);
+	var result;
+	for (var i = 0; i < radios.length; i++) {
+		if (i==num.value) {
+			radios[i].checked=true;
+		}
+	}
+}
