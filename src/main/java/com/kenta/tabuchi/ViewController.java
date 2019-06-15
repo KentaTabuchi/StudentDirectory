@@ -22,19 +22,21 @@ public class ViewController {
 	
     @Autowired
     private JdbcTemplate jdbc;
-    
-	
-	@RequestMapping(value= {"/","/{order}"},method=RequestMethod.GET)
-	public ModelAndView indexGet(@RequestParam(name="order",required=false)Integer order,ModelAndView mav) {
+  
+	@RequestMapping(value= {"/","/{orderRadio}"},method=RequestMethod.GET)
+	public ModelAndView indexGet(
+			@RequestParam(name="orderRadio",required=false)Integer orderRadio,
+			ModelAndView mav) 
+	{
 		mav.setViewName("index");
 		M_StudentDao dao = new M_StudentDao(jdbc);
 		List<Student> recordset = null;
 	
-		if(order==null) {
+		if(orderRadio==null) {
 			recordset= dao.findAll();
 		}
 		else {
-			switch(order) {
+			switch(orderRadio) {
 			case 0:
 				recordset = dao.findAllByOrderByNamePhonetic();
 				break;
@@ -46,7 +48,7 @@ public class ViewController {
 				break;
 			}
 		}
-	
+		mav.addObject("orderRadio",orderRadio);
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}

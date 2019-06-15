@@ -19,9 +19,24 @@
 		<input type="file" name="upload_file">	
 		
 			<h2>項目の並べ替え</h2>
-		<input type="radio" name="sort_radio" value="1">名前順
+	<div th:if="${orderRadio}==0">
+		<input type="radio" name="sort_radio" value="1" checked>名前順
+	</div>
+	<div th:unless="${orderRadio}==0">
+		<input type="radio" name="sort_radio" value="1" >名前順
+	</div>
+	<div th:if="${orderRadio}==1">
 		<input type="radio" name="sort_radio" value="2" checked>ID順
-		<input type="radio" name="sort_radio" value="3">誕生日順
+	</div>
+	<div th:unless="${orderRadio}==1">
+		<input type="radio" name="sort_radio" value="2" >ID順
+	</div>
+	<div th:if="${orderRadio}==2">
+		<input type="radio" name="sort_radio" value="3" checked >誕生日順
+	</div>
+	<div th:unless="${orderRadio}==2">
+		<input type="radio" name="sort_radio" value="3" >誕生日順
+	</div>
 		<input type="button" value="並べ替え" onclick="sort('sort_radio')">
 	</form>
 		<script type="text/javascript" src="js/script.js" th:href="@{/js/script.js}">
