@@ -41,4 +41,5 @@ function findRecordByTextValue(id,radioName){
 	var target = document.getElementById(id).value;
 	var radioNum = getSelectedRadioNum(radioName);
 	alert(radioNum);
+	document.location.href = "find_record/?textValue=" + target + "&radioValue=" + radioNum;
 }

@@ -81,21 +81,13 @@ public class ViewController {
 		}
 		return adoptedMav;
 	}
-	@RequestMapping(value="/find_record",method=RequestMethod.GET)
-	public ModelAndView findRecord(
-			ModelAndView mav) {
-		mav.setViewName("find_record");
-		M_StudentDao dao = new M_StudentDao(jdbc);
-		List<Student> recordset = dao.findAll();
-		mav.addObject("recordSet", recordset);
-		return mav;
-	}
-	@RequestMapping(value= {"/","/{radioValue}"},method=RequestMethod.GET)
+
+	@RequestMapping(value= {"/find_record","/find_record/{radioValue}"},method=RequestMethod.GET)
 	public ModelAndView findRecordGet(
 			@RequestParam(name="radioValue",required=false)Integer radioValue,
 			@RequestParam(name="textValue",required=false)String textValue,
 			ModelAndView mav) {
-		mav.setViewName("index");
+		mav.setViewName("find_record");
 		M_StudentDao dao = new M_StudentDao(jdbc);
 		List<Student> recordset = null;
 		if(radioValue==null) {
@@ -108,7 +100,7 @@ public class ViewController {
 			case 2:recordset = dao.findByPhoneLike(textValue);		break;
 			}
 		}
-		mav.addObject("radioValue",radioValue);
+		//mav.addObject("radioValue",radioValue);
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}
