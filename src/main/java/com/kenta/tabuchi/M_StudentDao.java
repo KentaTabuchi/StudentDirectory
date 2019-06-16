@@ -122,6 +122,21 @@ public class M_StudentDao {
 		}
     	return students;
     }
+    public List<Student> findByPhoneLike(String phone){
+    	SSHConnection sshcon = null;
+    	List<Student> students = null;
+    	final String sql = "SELECT * FROM M_student WHERE phone LIKE ?";
+    	try {
+			sshcon = new SSHConnection();
+	    	List<Map<String,Object>> list = this.jdbc.queryForList(sql,"%"+phone+"%");
+	    	students = mapValuOfStudents(list);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}finally{
+			sshcon.closeSSH();
+		}
+    	return students;
+    }
     public void insert(Student student) {
     	SSHConnection sshcon = null;
     	final String sql = 

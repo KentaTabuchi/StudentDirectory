@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<script type="text/javascript" src="js/script.js" th:href="@{/js/script.js}"></script>
 <link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
 <meta charset="UTF-8">
 <title>生徒検索</title>
 </head>
 <body>
-	<form method="post" action="find_record" >
-		<input type="text" name="name">
-		<input type="submit" value="名前で検索">
+<h1>生徒検索</h1>
+	<form method="post" action="find_record" onsubmit="return false;">
+		<input type="text" id="textbox">	
+		<input type="radio" name="find_radio" value="1">名前
+		<input type="radio" name="find_radio" value="2" checked>ID
+		<input type="radio" name="find_radio" value="3">電話番号
+		<input type="button" value="検索" onclick="findRecordByTextValue('textbox','find_radio');">
 		</form>
 <div th:include="table_fragment::frag_body"></div>
 

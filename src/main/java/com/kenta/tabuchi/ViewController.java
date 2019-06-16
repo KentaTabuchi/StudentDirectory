@@ -90,6 +90,28 @@ public class ViewController {
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}
+	@RequestMapping(value= {"/","/{radioValue}"},method=RequestMethod.GET)
+	public ModelAndView findRecordGet(
+			@RequestParam(name="radioValue",required=false)Integer radioValue,
+			@RequestParam(name="textValue",required=false)String textValue,
+			ModelAndView mav) {
+		mav.setViewName("index");
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		List<Student> recordset = null;
+		if(radioValue==null) {
+			recordset= dao.findAll();
+		}
+		else {
+			switch(radioValue) {
+			case 0:recordset = dao.findByNameLike(textValue);		break;
+			case 1:recordset = dao.findById(textValue); 			break;
+			case 2:recordset = dao.findByPhoneLike(textValue);		break;
+			}
+		}
+		mav.addObject("radioValue",radioValue);
+		mav.addObject("recordSet", recordset);
+		return mav;
+	}
 	@RequestMapping(value="/find_record",method=RequestMethod.POST)
 	public ModelAndView findRecordPost(
 			@RequestParam("name")String name,
