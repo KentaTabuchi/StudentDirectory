@@ -123,6 +123,9 @@ public class ViewController {
 		}
 		//mav.addObject("radioValue",radioValue);
 		mav.addObject("recordSet", recordset);
+		try {
+			Thread.sleep(3000);//if here is not this,caused MySQL error.communication link failer.
+		}catch(InterruptedException e) {e.printStackTrace();}
 		return mav;
 	}
 

@@ -3,23 +3,13 @@
 h1{font-size:30pt;font-weight:bold;color:gray;}
 body{color:green;}
 
-table{
+.formal-table__table{
   
   border-collapse:separate;
   border-spacing: 0;
   table-layout:fixed;
 }
-
-th:first-child{
-  border-radius: 5px 0 0 0;
-}
-
-table th:last-child{
-  border-radius: 0 5px 0 0;
-  border-right: 1px solid #3c6690;
-}
-
-table th{
+.formal-table__table-head{
   text-align: center;
   color:white;
   background: linear-gradient(#829ebc,#225588);
@@ -29,8 +19,14 @@ table th{
   box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
   padding: 10px 0;
 }
-
-td{
+.formal-table__table-head:first-child{
+  border-radius: 5px 0 0 0;
+}
+.formal-table__table-head:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+.formal-table__table-head{
   text-align: center;
   border-left: 1px solid #a8b7c5;
   border-bottom: 1px solid #a8b7c5;
@@ -38,41 +34,38 @@ td{
   box-shadow: 0px -3px 5px 1px #eee inset;
   padding: 10px 0;
 }
-
-table td:last-child{
+.formal-table__table-data:last-child{
   border-right: 1px solid #a8b7c5;
 }
-
-table tr:last-child td:first-child {
+.formal-table__table-record:last-child .formal-table__table-data:first-child {
   border-radius: 0 0 0 5px;
 }
-
-table tr:last-child td:last-child {
+.formal-table__table-record:last-child .formal-table__table-data:last-child {
   border-radius: 0 0 5px 0;
 }
 /*
 	Table column width in "index.html".
 	nth-child(x) is indicate column what is it from left. 
 */
-.listTable tr th:nth-child(1) {
+.formal-table__table tr th:nth-child(1) {
   width:70px; /*id column*/
 }
-.listTable tr th:nth-child(2) {
+.formal-table__table tr th:nth-child(2) {
   width:150px; /*name column*/
 }
-.listTable tr th:nth-child(3) {
+.formal-table__table tr th:nth-child(3) {
   width:120px; /*birthday column*/
 }
-.listTable tr th:nth-child(4) {
+.formal-table__table tr th:nth-child(4) {
   width:200px; /*phone column*/
 }
-.listTable tr th:nth-child(5) {
+.formal-table__table tr th:nth-child(5) {
   width:250px; /*email column*/
 }
-.listTable tr th:nth-child(6) {
+.formal-table__table tr th:nth-child(6) {
   width:300px; /*address column*/
 }
-.listTable tr th:nth-child(7) {
+.formal-table__table tr th:nth-child(7) {
   width:70px; /*graduation column*/
 }
 
