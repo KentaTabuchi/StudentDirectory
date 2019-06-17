@@ -43,7 +43,25 @@ public class ViewController {
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}
-
+	/**
+	 * When user push button for find by name.This method will invoke.
+	 * @param mav
+	 * @return
+	 */
+	@RequestMapping(value="/",params="onCsvImportClick",method=RequestMethod.POST)
+	public ModelAndView indexPostCsv(
+			@RequestParam("upload_file")MultipartFile uploadFile,
+			ModelAndView mav)
+	{
+		CsvReader csvReader = new CsvReader();
+		M_StudentDao dao = new M_StudentDao(jdbc);
+		csvReader.addTableFromCsv(uploadFile,dao);
+		try {
+			Thread.sleep(3000);//if here is not this,caused MySQL error.communication link failer.
+		}catch(InterruptedException e) {e.printStackTrace();}
+		mav = new ModelAndView("redirect:/");
+		return mav;
+	}
 	/**
 	 * When user push add_record button,Active page will move there.and this method
 	 * will invoke like a constructor.
@@ -74,6 +92,9 @@ public class ViewController {
 		if(!result.hasErrors()) {
 			M_StudentDao dao = new M_StudentDao(jdbc);
 			dao.insert(student);
+			try {
+				Thread.sleep(3000);//if here is not this,caused MySQL error.communication link failer.
+			}catch(InterruptedException e) {e.printStackTrace();}
 			adoptedMav = new ModelAndView("redirect:/");
 		}else {
 			mav.setViewName("add_record");
@@ -104,16 +125,7 @@ public class ViewController {
 		mav.addObject("recordSet", recordset);
 		return mav;
 	}
-	@RequestMapping(value="/find_record",method=RequestMethod.POST)
-	public ModelAndView findRecordPost(
-			@RequestParam("name")String name,
-			ModelAndView mav) {
-		mav.setViewName("find_record");
-		M_StudentDao dao = new M_StudentDao(jdbc);
-		List<Student> recordset = dao.findByNameLike(name);
-		mav.addObject("recordSet",recordset);
-		return mav;
-	}
+
 	@RequestMapping(value="/delete_record",method=RequestMethod.GET)
 	public ModelAndView deleteRecord(
 			ModelAndView mav) {
@@ -147,6 +159,9 @@ public class ViewController {
 		mav.setViewName("index");
 		M_StudentDao dao = new M_StudentDao(jdbc);
 		dao.deleteById(id);
+		try {
+			Thread.sleep(3000);//if here is not this,caused MySQL error.communication link failer.
+		}catch(InterruptedException e) {e.printStackTrace();}
 		List<Student> recordset = dao.findAll();
 		mav.addObject("recordSet", recordset);
 		return mav;
@@ -169,7 +184,14 @@ public class ViewController {
 			ModelAndView mav) {
 		M_StudentDao dao = new M_StudentDao(jdbc);
 		dao.updateById(student);
-		return new ModelAndView("redirect:/");
+		dao=null;
+		mav.setViewName("index");
+		List<Student> recordset = null;
+		dao = new M_StudentDao(jdbc);
+		recordset= dao.findAll();
+		mav.addObject("order",1);
+		mav.addObject("recordSet", recordset);
+		return mav;
 	}
 	@RequestMapping(value="/edit_select",method=RequestMethod.GET)
 	public ModelAndView editSelectGet(
@@ -180,22 +202,7 @@ public class ViewController {
 		mav.setViewName("edit_select");
 		return mav;
 	}
-	/**
-	 * When user push button for find by name.This method will invoke.
-	 * @param mav
-	 * @return
-	 */
-	@RequestMapping(value="/",params="onCsvImportClick",method=RequestMethod.POST)
-	public ModelAndView indexPostCsv(
-			@RequestParam("upload_file")MultipartFile uploadFile,
-			ModelAndView mav)
-	{
-		CsvReader csvReader = new CsvReader();
-		M_StudentDao dao = new M_StudentDao(jdbc);
-		csvReader.addTableFromCsv(uploadFile,dao);
-		mav = new ModelAndView("redirect:/");
-		return mav;
-	}
+
     /**
      * This method downloads CSV file that contains all records form M_Students table. 
      */

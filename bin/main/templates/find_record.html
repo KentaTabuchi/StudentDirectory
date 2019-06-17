@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<script type="text/javascript" src="js/script.js" th:href="@{/js/script.js}"></script>
 <link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
+<!---<script type="text/javascript" src="js/script.js" th:href="@{/js/script.js}"></script>-->
 <meta charset="UTF-8">
 <title>生徒検索</title>
 </head>
 <body>
+
 <h1>生徒検索</h1>
 	<form method="post" action="find_record" onsubmit="return false;">
 		<input type="text" id="textbox">	
@@ -17,5 +18,23 @@
 		</form>
 <div th:include="table_fragment::frag_body"></div>
 
+<script type="text/javascript">
+function findRecordByTextValue(id,radioName){
+	'use strict';
+	var target = document.getElementById(id).value;
+	var radioNum = getSelectedRadioNum(radioName);
+	document.location.href = "find_record/?textValue=" + target + "&radioValue=" + radioNum;
+}
+function getSelectedRadioNum(radioName){
+	var radios = document.getElementsByName(radioName);
+	var result;
+	for (var i = 0; i < radios.length; i++) {
+		if (radios[i].checked) {
+			result = i;
+		}
+	}
+	return result;
+}
+</script>
 </body>
 </html>
