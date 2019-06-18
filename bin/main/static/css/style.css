@@ -32,12 +32,12 @@
 	border-radius: 3px;
 }
 
-.formal-table__table{
+.list-table__table{
   border-collapse:separate;
   border-spacing: 0;
   table-layout:fixed;
 }
-.formal-table__table-head{
+.list-table__table-head{
   text-align: center;
   color:white;
   background: linear-gradient(#829ebc,#225588);
@@ -48,14 +48,14 @@
   padding: 10px 0;
 }
 
-.formal-table__table-head:first-child{
+.list-table__table-head:first-child{
   border-radius: 5px 0 0 0;
 }
-.formal-table__table-head:last-child{
+.list-table__table-head:last-child{
   border-radius: 0 5px 0 0;
   border-right: 1px solid #3c6690;
 }
-.formal-table__table-data{
+.list-table__table-data{
   text-align: center;
   border-left: 1px solid #a8b7c5;
   border-bottom: 1px solid #a8b7c5;
@@ -63,35 +63,75 @@
   box-shadow: 0px -3px 5px 1px #eee inset;
   padding: 10px 0;
 }
-.formal-table__table-data:last-child{
+.list-table__table-data:last-child{
   border-right: 1px solid #a8b7c5;
 }
-.formal-table__table-record:last-child .formal-table__table-data:first-child {
+.list-table__table-record:last-child .list-table__table-data:first-child {
   border-radius: 0 0 0 5px;
 }
-.formal-table__table-record:last-child .formal-table__table-data:last-child {
+.list-table__table-record:last-child .list-table__table-data:last-child {
   border-radius: 0 0 5px 0;
 }
 
-.formal-table__table tr th:nth-child(1) {
+.list-table__table tr th:nth-child(1) {
   width:70px; /*id column*/
 }
-.formal-table__table tr th:nth-child(2) {
+.list-table__table tr th:nth-child(2) {
   width:150px; /*name column*/
 }
-.formal-table__table tr th:nth-child(3) {
+.list-table__table tr th:nth-child(3) {
   width:120px; /*birthday column*/
 }
-.formal-table__table tr th:nth-child(4) {
+.list-table__table tr th:nth-child(4) {
   width:200px; /*phone column*/
 }
-.formal-table__table tr th:nth-child(5) {
+.list-table__table tr th:nth-child(5) {
   width:250px; /*email column*/
 }
-.formal-table__table tr th:nth-child(6) {
+.list-table__table tr th:nth-child(6) {
   width:300px; /*address column*/
 }
-.formal-table__table tr th:nth-child(7) {
+.list-table__table tr th:nth-child(7) {
   width:70px; /*graduation column*/
 }
 
+.input-table__table{
+  border-collapse:separate;
+  border-spacing: 0;
+  table-layout:fixed;
+}
+.input-table__table-head{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  padding: 10px 0;
+}
+
+.input-table__table-head:first-child{
+  border-radius: 5px 0 0 0;
+}
+.input-table__table-head:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+.input-table__table-data{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  padding: 10px 0;
+}
+.input-table__table-data:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+.input-table__table-record:last-child .input-table__table-data:first-child {
+  border-radius: 0 0 0 5px;
+}
+.input-table__table-record:last-child .input-table__table-data:last-child {
+  border-radius: 0 0 5px 0;
+}
