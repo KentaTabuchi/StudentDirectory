@@ -7,7 +7,7 @@
 <title>学生名簿</title>
 </head>
 <body onload="restoreRadio('sort_radio')">
-	<h1>生徒一覧</h1>
+	<h1 class="container__heading-1">生徒一覧</h1>
 	<input type="hidden" th:value="${order}" id="order">
 	<!-- This is menu block at top of index page. -->
 	<form method="post" action="/" enctype="multipart/form-data">
@@ -19,7 +19,7 @@
 		<input type="submit" name="onCsvImportClick" value="CSVからインポート">
 		<input type="file" name="upload_file">	
 		
-			<h2>項目の並べ替え</h2>
+			<h2 class="container__heading-2">項目の並べ替え</h2>
 		<input type="radio" name="sort_radio" value="1">名前順
 		<input type="radio" name="sort_radio" value="2" checked>ID順
 		<input type="radio" name="sort_radio" value="3">誕生日順

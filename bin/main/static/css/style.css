@@ -1,10 +1,19 @@
 @charset "UTF-8";
 
-h1{font-size:30pt;font-weight:bold;color:gray;}
-body{color:green;}
-
+.container__heading-1{
+  font-size:30pt;
+  font-weight:bold;
+  color:gray;
+  }
+.container__heading-2{ 
+  font-size:20pt;
+  font-weight:bold;
+  color:green;
+  }
+.container__body{	
+  color:black;
+  }
 .formal-table__table{
-  
   border-collapse:separate;
   border-spacing: 0;
   table-layout:fixed;
@@ -19,6 +28,7 @@ body{color:green;}
   box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
   padding: 10px 0;
 }
+
 .formal-table__table-head:first-child{
   border-radius: 5px 0 0 0;
 }
@@ -26,7 +36,7 @@ body{color:green;}
   border-radius: 0 5px 0 0;
   border-right: 1px solid #3c6690;
 }
-.formal-table__table-head{
+.formal-table__table-data{
   text-align: center;
   border-left: 1px solid #a8b7c5;
   border-bottom: 1px solid #a8b7c5;

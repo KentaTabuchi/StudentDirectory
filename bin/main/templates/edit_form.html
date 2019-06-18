@@ -6,45 +6,46 @@
 <title>編集</title>
 </head>
 <body>
-<h1>編集</h1>
+<h1 class="container__heading-1">編集</h1>
 <form method="post" action="/edit_form" th:object="${formModel}">
-	<table>
+	<table class="formal-table__table">
 		
-		<tr><th>項目</th><th>入力欄<input type="hidden" name="id" th:value="*{id}"/></th></tr>
-		<tr><td>名前</td>
-			<td><input type="text" name="name" th:value="*{name}" th:errorclass="err"/>
+		<tr><th class="formal-table__table-head">項目</th>
+			<th class="formal-table__table-head">入力欄<input type="hidden" name="id" th:value="*{id}"/></th></tr>
+		<tr><td class="formal-table__table-data">名前</td>
+			<td class="formal-table__table-data"><input type="text" name="name" th:value="*{name}" th:errorclass="err"/>
 				<div th:if="${#fields.hasErrors('name')}" 
 				th:errors="*{name}" th:errorclass="err"></div></td>
 		</tr>
-		<tr><td>ふりがな</td>
-			<td><input type="text" name="namePhonetic" th:value="*{namePhonetic}" th:errorclass="err"/>
+		<tr><td class="formal-table__table-data">ふりがな</td>
+			<td class="formal-table__table-data"><input type="text" name="namePhonetic" th:value="*{namePhonetic}" th:errorclass="err"/>
 				<div th:if="${#fields.hasErrors('namePhonetic')}" 
 				th:errors="*{namePhonetic}" th:errorclass="err"></div></td>
 		</tr>
-		<tr><td>誕生日</td>
-			<td><input type="text" name="birthday" th:value="*{birthday}" th:errorclass="err"/>
+		<tr><td class="formal-table__table-data">誕生日</td>
+			<td class="formal-table__table-data"><input type="text" name="birthday" th:value="*{birthday}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('birthday')}"
 			th:errors="*{birthday}" th:errorclass="err"></div></td>
 		</tr>
-		<tr><td>電話番号</td>
-			<td><input type="text" name="phone" th:value="*{phone}" th:errorclass="err"/>
+		<tr><td class="formal-table__table-data">電話番号</td>
+			<td class="formal-table__table-data"><input type="text" name="phone" th:value="*{phone}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('phone')}"
 			th:errors="*{phone}" th:errorclass="err"></div></td>
 		</tr>
-		<tr><td>E-mail</td>
-			<td><input type="text" name="email" th:value="*{email}" th:errorclass="err"/>
+		<tr><td class="formal-table__table-data">E-mail</td>
+			<td class="formal-table__table-data"><input type="text" name="email" th:value="*{email}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('email')}"
 			th:errors="*{email}" th:errorclass="email"></div>
 			</td>
 		</tr>
-		<tr><td>住所</td>
-			<td><input type="text" name="address" th:value="*{address}" th:errorclass="err"/>
+		<tr><td class="formal-table__table-data">住所</td>
+			<td class="formal-table__table-data"><input type="text" name="address" th:value="*{address}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('address')}"
 			th:errors="*{address}" th:errorclass="address"></div>
 			</td>
 		</tr>
-		<tr><td>卒業年</td>
-			<td><input type="text" name="graduation" th:value="*{graduation}" th:errorclass="err"/>
+		<tr><td class="formal-table__table-data">卒業年</td>
+			<td class="formal-table__table-data"><input type="text" name="graduation" th:value="*{graduation}" th:errorclass="err"/>
 			<div th:if="${#fields.hasErrors('graduation')}"
 			th:errors="*{graduation}" th:errorclass="graduation"></div>
 			</td>

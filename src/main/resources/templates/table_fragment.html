@@ -9,24 +9,24 @@
 <div th:fragment = "frag_body">
 	<!-- The following text is table view read from DB. -->
 	<form>
-		<table class="listTable">
+		<table class="formal-table__table">
 			<tr>
-				<th>生徒番号</th>
-				<th>名前</th>
-				<th>誕生日</th>
-				<th>電話番号</th>
-				<th>E-mail</th>
-				<th>住所</th>
-				<th>卒業年</th>
+				<th class="formal-table__table-head">生徒番号</th>
+				<th class="formal-table__table-head">名前</th>
+				<th class="formal-table__table-head">誕生日</th>
+				<th class="formal-table__table-head">電話番号</th>
+				<th class="formal-table__table-head">E-mail</th>
+				<th class="formal-table__table-head">住所</th>
+				<th class="formal-table__table-head">卒業年</th>
 			</tr>
 			<tr th:each="record:${recordSet}">
-				<td>[[${record.id}]]</td>
-				<td>[[${record.name}]]</td>
-				<td>[[${record.birthday}]]</td>
-				<td>[[${record.phone}]]</td>
-				<td>[[${record.email}]]</td>
-				<td>[[${record.address}]]</td>
-				<td>[[${record.graduation}]]</td>
+				<td class="formal-table__table-data">[[${record.id}]]</td>
+				<td class="formal-table__table-data">[[${record.name}]]</td>
+				<td class="formal-table__table-data">[[${record.birthday}]]</td>
+				<td class="formal-table__table-data">[[${record.phone}]]</td>
+				<td class="formal-table__table-data">[[${record.email}]]</td>
+				<td class="formal-table__table-data">[[${record.address}]]</td>
+				<td class="formal-table__table-data">[[${record.graduation}]]</td>
 			</tr>
 		</table>
 	</form>
