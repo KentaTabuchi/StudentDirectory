@@ -11,8 +11,8 @@
 
 <h1 class="container__heading-1">編集対象選択</h1>
 <form name="js">
-	<input type="button" value="ID番号で検索" onclick="getIdText()">
-	<input type="text" name="idText">
+	<input type="button" class="container__btn" value="ID番号で検索" onclick="getIdText()">
+	<input type="text" class="container__textbox" name="idText">
 </form>
 
 <div th:include="table_fragment::frag_body"></div>

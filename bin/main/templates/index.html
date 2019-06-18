@@ -11,19 +11,19 @@
 	<input type="hidden" th:value="${order}" id="order">
 	<!-- This is menu block at top of index page. -->
 	<form method="post" action="/" enctype="multipart/form-data">
-		<input type="button" onclick="location.href='add_record'" value="新規追加">
-		<input type="button" onclick="location.href='edit_select'" value="編集">
-		<input type="button" onclick="location.href='find_record'" value="検索">
-		<input type="button" onclick="location.href='delete_record'" value="削除">
-		<input type="button" onclick="location.href='csvDownload'" value="CSVへエクスポート">
-		<input type="submit" name="onCsvImportClick" value="CSVからインポート">
+		<input type="button" onclick="location.href='add_record'" value="新規追加" class="container__btn">
+		<input type="button" onclick="location.href='edit_select'" value="編集" class="container__btn">
+		<input type="button" onclick="location.href='find_record'" value="検索" class="container__btn">
+		<input type="button" onclick="location.href='delete_record'" value="削除" class="container__btn">
+		<input type="button" onclick="location.href='csvDownload'" value="CSVへエクスポート" class="container__btn">
+		<input type="submit" name="onCsvImportClick" value="CSVからインポート" class="container__btn">
 		<input type="file" name="upload_file">	
 		
 			<h2 class="container__heading-2">項目の並べ替え</h2>
 		<input type="radio" name="sort_radio" value="1">名前順
 		<input type="radio" name="sort_radio" value="2" checked>ID順
 		<input type="radio" name="sort_radio" value="3">誕生日順
-		<input type="button" value="並べ替え" onclick="sort('sort_radio')">
+		<input type="button" value="並べ替え" onclick="sort('sort_radio')" class="container__btn">
 	</form>
 
 	<p th:text="${file_name}"></p>

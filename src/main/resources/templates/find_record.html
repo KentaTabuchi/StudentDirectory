@@ -10,11 +10,12 @@
 
 <h1 class="container__heading-1">生徒検索</h1>
 	<form method="post" action="find_record" onsubmit="return false;">
-		<input type="text" id="textbox">	
-		<input type="radio" name="find_radio" value="1">名前
-		<input type="radio" name="find_radio" value="2" checked>ID
-		<input type="radio" name="find_radio" value="3">電話番号
-		<input type="button" value="検索" onclick="findRecordByTextValue('textbox','find_radio');">
+		<input type="text" class="container__textbox"  id="textbox">	
+		<input type="radio" name="find_radio" value="1" class="container__btn">名前
+		<input type="radio" name="find_radio" value="2" checked class="container__btn">ID
+		<input type="radio" name="find_radio" value="3" class="container__btn">電話番号
+		<input type="button" value="検索" onclick="findRecordByTextValue('textbox','find_radio');" 
+		class="container__btn">
 		</form>
 <div th:include="table_fragment::frag_body"></div>
 

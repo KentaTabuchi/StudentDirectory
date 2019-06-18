@@ -13,6 +13,25 @@
 .container__body{	
   color:black;
   }
+.container__btn{
+  font-size:20px;
+  border:3px solid rgb(147,162,0);
+  background-color: rgba(147,162,0,1);
+  color: #fff;
+}
+.container__btn:hover{
+  font-size:20px;
+  border:3px solid rgb(147,162,0);
+  background-color: rgba(147,162,0,.0);
+  color:  rgba(147,162,0,1);
+}
+.container__textbox{
+	font-size:20px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
 .formal-table__table{
   border-collapse:separate;
   border-spacing: 0;
@@ -53,10 +72,7 @@
 .formal-table__table-record:last-child .formal-table__table-data:last-child {
   border-radius: 0 0 5px 0;
 }
-/*
-	Table column width in "index.html".
-	nth-child(x) is indicate column what is it from left. 
-*/
+
 .formal-table__table tr th:nth-child(1) {
   width:70px; /*id column*/
 }
@@ -79,25 +95,3 @@
   width:70px; /*graduation column*/
 }
 
-/*
-	buttons at all pages.
-*/
-input[type="button"],input[type="submit"]{
-  font-size:20px;
-  border:3px solid rgb(147,162,0);
-  background-color: rgba(147,162,0,1);
-  color: #fff;
-}
-input[type="button"]:hover,input[type="submit"]:hover{
-  font-size:20px;
-  border:3px solid rgb(147,162,0);
-  background-color: rgba(147,162,0,.0);
-  color:  rgba(147,162,0,1);
-}
-
-input[type="text"]{
-	font-size:20px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}

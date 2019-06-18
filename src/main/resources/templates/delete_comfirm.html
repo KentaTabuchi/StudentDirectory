@@ -18,9 +18,9 @@
 		<tr><td><p th:text ="|住所: *{address}|"></p></td>
 		<tr><td><p th:text ="|卒業年: *{graduation}|"></p></td>
 	</table>
-	<input type="hidden" th:value="*{id}" name="hiddenId">
-	<input type="submit" value="削除" />
-	<input type="button" value="中止" onclick="location.href='/'">
+	<input type="hidden" th:value="*{id}" name="hiddenId" class="container__btn">
+	<input type="submit" value="削除" class="container__btn"/>
+	<input type="button" value="中止" onclick="location.href='/'" class="container__btn">
 </form>
 
 
