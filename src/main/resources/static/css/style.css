@@ -1,137 +1,176 @@
 @charset "UTF-8";
 
-.container__heading-1{
-  font-size:30pt;
-  font-weight:bold;
-  color:gray;
-  }
-.container__heading-2{ 
-  font-size:20pt;
-  font-weight:bold;
-  color:green;
-  }
-.container__body{	
-  color:black;
-  }
-.container__btn{
-  font-size:20px;
-  border:3px solid rgb(147,162,0);
-  background-color: rgba(147,162,0,1);
-  color: #fff;
+.container__heading-1 {
+	padding: 0.1em 0.3em;
+	border-left: 10px solid #FF5722;
+	border-bottom: 1px solid #FF5722;
+	background: #FFAB91;
+	color:#ffffff;
 }
-.container__btn:hover{
-  font-size:20px;
-  border:3px solid rgb(147,162,0);
-  background-color: rgba(147,162,0,.0);
-  color:  rgba(147,162,0,1);
+
+.container__heading-2 {
+	font-size: 20pt;
+	font-weight: bold;
+	color: green;
 }
-.container__textbox{
-	font-size:20px;
+
+.container__body {
+	font-family:"ヒラギノ角ゴシック";
+	color: black;
+	background-color: #8be4f0;
+	background-image:linear-gradient(-90deg, #80deea 50%, transparent 50%, transparent);
+	background-size: 14px 14px;
+}
+
+.container__btn {
+	font-size: 20px;
+	border: 3px solid rgb(147, 162, 0);
+	background-color: rgba(147, 162, 0, 1);
+	color: #fff;
+}
+
+.container__btn:hover {
+	font-size: 20px;
+	border: 3px solid rgb(147, 162, 0);
+	background-color: rgba(147, 162, 0, .0);
+	color: rgba(147, 162, 0, 1);
+}
+
+.container__textbox {
+	font-size: 20px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
 
-.list-table__table{
-  border-collapse:separate;
-  border-spacing: 0;
-  table-layout:fixed;
-}
-.list-table__table-head{
-  text-align: center;
-  color:white;
-  background: linear-gradient(#829ebc,#225588);
-  border-left: 1px solid #3c6690;
-  border-top: 1px solid #3c6690;
-  border-bottom: 1px solid #3c6690;
-  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-  padding: 10px 0;
+.list-table__table {
+	border-collapse: separate;
+	border-spacing: 0;
+	table-layout: fixed;
 }
 
-.list-table__table-head:first-child{
-  border-radius: 5px 0 0 0;
+.list-table__table-head {
+	text-align: center;
+	color: white;
+	background: linear-gradient(#829ebc, #225588);
+	border-left: 1px solid #3c6690;
+	border-top: 1px solid #3c6690;
+	border-bottom: 1px solid #3c6690;
+	box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
+	padding: 10px 0;
 }
-.list-table__table-head:last-child{
-  border-radius: 0 5px 0 0;
-  border-right: 1px solid #3c6690;
+
+.list-table__table-head:first-child {
+	border-radius: 5px 0 0 0;
 }
-.list-table__table-data{
-  text-align: center;
-  border-left: 1px solid #a8b7c5;
-  border-bottom: 1px solid #a8b7c5;
-  border-top:none;
-  box-shadow: 0px -3px 5px 1px #eee inset;
-  padding: 10px 0;
+
+.list-table__table-head:last-child {
+	border-radius: 0 5px 0 0;
+	border-right: 1px solid #3c6690;
 }
-.list-table__table-data:last-child{
-  border-right: 1px solid #a8b7c5;
+
+.list-table__table-data {
+	text-align: center;
+	border-left: 1px solid #a8b7c5;
+	border-bottom: 1px solid #a8b7c5;
+	border-top: none;
+	box-shadow: 0px -3px 5px 1px #eee inset;
+	padding: 10px 0;
 }
-.list-table__table-record:last-child .list-table__table-data:first-child {
-  border-radius: 0 0 0 5px;
+
+.list-table__table-data:last-child {
+	border-right: 1px solid #a8b7c5;
 }
-.list-table__table-record:last-child .list-table__table-data:last-child {
-  border-radius: 0 0 5px 0;
+
+.list-table__table-record:last-child .list-table__table-data:first-child
+	{
+	border-radius: 0 0 0 5px;
+}
+
+.list-table__table-record:last-child .list-table__table-data:last-child
+	{
+	border-radius: 0 0 5px 0;
 }
 
 .list-table__table tr th:nth-child(1) {
-  width:70px; /*id column*/
+	width: 70px; /*id column*/
 }
+
 .list-table__table tr th:nth-child(2) {
-  width:150px; /*name column*/
+	width: 150px; /*name column*/
 }
+
 .list-table__table tr th:nth-child(3) {
-  width:120px; /*birthday column*/
+	width: 120px; /*birthday column*/
 }
+
 .list-table__table tr th:nth-child(4) {
-  width:200px; /*phone column*/
+	width: 200px; /*phone column*/
 }
+
 .list-table__table tr th:nth-child(5) {
-  width:250px; /*email column*/
+	width: 250px; /*email column*/
 }
+
 .list-table__table tr th:nth-child(6) {
-  width:300px; /*address column*/
+	width: 300px; /*address column*/
 }
+
 .list-table__table tr th:nth-child(7) {
-  width:70px; /*graduation column*/
+	width: 70px; /*graduation column*/
 }
 
-.input-table__table{
-  border-collapse:separate;
-  border-spacing: 0;
-  table-layout:fixed;
+.list-table__table tr:nth-child(even) {
+	background: #FFFFCC;
 }
-.input-table__table-head{
-  text-align: center;
-  color:white;
-  background: linear-gradient(#829ebc,#225588);
-  border-left: 1px solid #3c6690;
-  border-top: 1px solid #3c6690;
-  border-bottom: 1px solid #3c6690;
-  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-  padding: 10px 0;
+.list-table__table tr:nth-child(odd) {
+	background: white;
+}
+.input-table__table {
+	border-collapse: separate;
+	border-spacing: 0;
+	table-layout: fixed;
 }
 
-.input-table__table-head:first-child{
-  border-radius: 5px 0 0 0;
+.input-table__table-head {
+	text-align: center;
+	color: white;
+	background: linear-gradient(#829ebc, #225588);
+	border-left: 1px solid #3c6690;
+	border-top: 1px solid #3c6690;
+	border-bottom: 1px solid #3c6690;
+	box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
+	padding: 10px 0;
 }
-.input-table__table-head:last-child{
-  border-radius: 0 5px 0 0;
-  border-right: 1px solid #3c6690;
+
+.input-table__table-head:first-child {
+	border-radius: 5px 0 0 0;
 }
-.input-table__table-data{
-  text-align: center;
-  border-left: 1px solid #a8b7c5;
-  border-bottom: 1px solid #a8b7c5;
-  border-top:none;
-  box-shadow: 0px -3px 5px 1px #eee inset;
-  padding: 10px 0;
+
+.input-table__table-head:last-child {
+	border-radius: 0 5px 0 0;
+	border-right: 1px solid #3c6690;
 }
-.input-table__table-data:last-child{
-  border-right: 1px solid #a8b7c5;
+
+.input-table__table-data {
+	text-align: center;
+	border-left: 1px solid #a8b7c5;
+	border-bottom: 1px solid #a8b7c5;
+	border-top: none;
+	box-shadow: 0px -3px 5px 1px #eee inset;
+	padding: 10px 0;
 }
-.input-table__table-record:last-child .input-table__table-data:first-child {
-  border-radius: 0 0 0 5px;
+
+.input-table__table-data:last-child {
+	border-right: 1px solid #a8b7c5;
 }
-.input-table__table-record:last-child .input-table__table-data:last-child {
-  border-radius: 0 0 5px 0;
+
+.input-table__table-record:last-child .input-table__table-data:first-child
+	{
+	border-radius: 0 0 0 5px;
+}
+
+.input-table__table-record:last-child .input-table__table-data:last-child
+	{
+	border-radius: 0 0 5px 0;
 }
